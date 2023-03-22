@@ -1,5 +1,5 @@
-import styled from "styled-components"
 import { Input } from "../../../../components/Input/Input"
+import { StyledNotes } from "../../../../constats/styles"
 
 export const Notes = () => (
   <StyledNotes>
@@ -14,13 +14,3 @@ export const Notes = () => (
   </StyledNotes>
 )
 
-const StyledNotes = styled.div`
-  padding: 16px 24px;
-  border: 1px solid #EAECF0;
-  border-radius: 0 0 12px 10px;
-  border-top: none;
-  .textarea .input-wrapper{
-    height: 154px;
-    background: #F9FAFB;
-  }
-`

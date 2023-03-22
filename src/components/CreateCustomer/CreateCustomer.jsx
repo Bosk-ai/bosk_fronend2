@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components"
+import { StyledCreateCustomer } from "../../constats/styles";
 import { Modal } from "../Modal/Modal";
 import { Tabs } from "../Tabs/Tabs";
 import { Bilings } from "./Bilings";
@@ -45,9 +45,3 @@ export const CreateCustomer = ({ open, onClose }) => {
   )
 }
 
-const StyledCreateCustomer = styled.div`
-  text-align: left !important;
-  .tabs {
-    margin: 0 auto 20px;
-  }
-`

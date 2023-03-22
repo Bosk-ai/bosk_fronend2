@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import './App.css';
 import { Sidebar } from './components/Sidebar/Sidebar';
+import { StyledApp } from './constats/styles';
 import { Auth } from './pages/Auth/Auth';
 import { CreateInvoice } from './pages/CreateInvoice/CreateInvoice';
 import { Customers } from './pages/Customers/Customers';
@@ -43,13 +43,3 @@ export const App = () => {
   );
 }
 
-const StyledApp = styled.div`
-  display: grid;
-  grid-template-columns: 312px 1fr;
-  .pages {
-    padding: 32px;
-    overflow: auto;
-    background: #F9FAFB;
-    height: 100vh;
-  }
-`

@@ -1,10 +1,9 @@
-import styled from "styled-components";
 import { Button } from "../../components/Button";
-import { Title } from "../../components/Title";
+import { StyledCreateInvoiceFooter } from "../../constats/styles";
 
 export const Footer = () => {
   return (
-    <StyledFooter>
+    <StyledCreateInvoiceFooter>
       <Button
         onClick={() => null}
         title="Preview"
@@ -16,19 +15,6 @@ export const Footer = () => {
         color="primary"
         className="btn"
       />
-    </StyledFooter>
+    </StyledCreateInvoiceFooter>
   )
 }
-
-const StyledFooter = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-bottom: 34px;
-  .btn {
-    height: 40px;
-  }
-  .btn-preview {
-    margin-right: 12px;
-  }
-`

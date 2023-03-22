@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { Button } from "../../components/Button";
 import { Title } from "../../components/Title";
+import { StyledInvoicesHeader } from "../../constats/styles";
 
 export const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <StyledHeader>
+    <StyledInvoicesHeader>
       <Title title="Invoices" />
       <Button
         onClick={() => navigate("/create-invoice")}
@@ -15,16 +15,6 @@ export const Header = () => {
         color="primary"
         className="create-invoice-btn"
       />
-    </StyledHeader>
+    </StyledInvoicesHeader>
   )
 }
-
-const StyledHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 32px;
-  .create-invoice-btn {
-    height: 40px;
-  }
-`

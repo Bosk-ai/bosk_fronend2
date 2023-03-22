@@ -1,8 +1,8 @@
-import styled from "styled-components"
+import { StyledModalFooter } from "../../constats/styles"
 import { Button } from "../Button"
 
 export const Footer = ({ onClose }) => (
-  <StyledFooter>
+  <StyledModalFooter>
     <Button
       onClick={onClose}
       title="Cancel"
@@ -14,18 +14,5 @@ export const Footer = ({ onClose }) => (
       color="primary"
       className="btn save-btn"
     />
-  </StyledFooter>
+  </StyledModalFooter>
 )
-
-const StyledFooter = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 32px;
-  .btn {
-    width: 100%;
-    justify-content: center;
-  }
-  .save-btn {
-    margin-left: 12px;
-  }
-`

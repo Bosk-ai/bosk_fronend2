@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import { Table } from "../../../../components/Table/Table"
 import { AddItem } from "./AddItem"
 import { Footer } from "./Footer"
@@ -6,6 +5,7 @@ import { ItemRow } from "./ItemRow"
 import { Notes } from "./Notes"
 import { useState } from "react";
 import { Empty } from "./Empty"
+import { StyledItemsTable } from "../../../../constats/styles"
 
 const INIT_ITEM = ({ description: "", quantity: 0, price: 0.0 });
 const TAX_OPTIONS = [
@@ -77,22 +77,3 @@ export const ItemsTable = () => {
   )
 }
 
-const StyledItemsTable = styled.div`
-  .items-column {
-    width: 50%;
-  }
-  table {
-    border-radius: 12px 12px 0 0;
-  }
-  th {
-    text-align: left;
-    line-height: 1;
-    vertical-align: center;
-    img {
-      display: none;
-    }
-  }
-  td {
-    padding: 16px 12px;
-  }
-`

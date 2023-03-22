@@ -1,5 +1,4 @@
 import { useState } from "react"
-import styled from "styled-components"
 import useGetInvoices from "../../hooks/invoices/useGetInvoices"
 import { Header } from "./Header"
 import { InvoicesTable } from "./InvoicesTable/InvoicesTable"
@@ -18,7 +17,7 @@ export const Invoices = () => {
   const handleChangeActiveTab = (tab) => setActiveTab(tab);
 
   return (
-    <StyledInvoices>
+    <div>
       <Header />
       <ManageBar
         tabs={TABS}
@@ -26,10 +25,6 @@ export const Invoices = () => {
         onChangeTab={handleChangeActiveTab}
       />
       <InvoicesTable invoices={invoices} />
-    </StyledInvoices>
+    </div>
   )
 }
-
-const StyledInvoices = styled.div`
-  
-`

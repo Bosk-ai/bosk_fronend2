@@ -1,30 +1,28 @@
 import { useState } from "react"
-import styled from "styled-components"
 import { CreateCustomer } from "../../components/CreateCustomer/CreateCustomer"
-import useGetCustomers from "../../hooks/customers/useGetCustomers"
+// import useGetCustomers from "../../hooks/customers/useGetCustomers"
 import { CustomersTable } from "./CustomersTable/CustomersTable"
 import { Header } from "./Header"
 import { ManageBar } from "./ManageBar"
 
 export const Customers = () => {
   const [open, setOpen] = useState();
-  const [editCustomer, setEditCustomer] = useState(null);
-  const { customers } = useGetCustomers();
+  // const [editCustomer, setEditCustomer] = useState(null);
+  // const { customers } = useGetCustomers();
 
   const handleCloseModal = () => {
     setOpen(false);
-    setEditCustomer(null);
+    // setEditCustomer(null);
   };
   const handleOpenModal = () => setOpen(true);
 
   const handleEditCustomer = (customer) => {
-    setEditCustomer(customer);
+    // setEditCustomer(customer);
     setOpen(true)
   }
 
-  console.log(customers)
   return (
-    <StyledCustomers>
+    <div>
       <CreateCustomer
         open={open}
         onClose={handleCloseModal}
@@ -32,10 +30,6 @@ export const Customers = () => {
       <Header onAddCustomer={handleOpenModal} />
       <ManageBar />
       <CustomersTable onEditCustomer={handleEditCustomer} />
-    </StyledCustomers>
+    </div>
   )
 }
-
-const StyledCustomers = styled.div`
-  
-`

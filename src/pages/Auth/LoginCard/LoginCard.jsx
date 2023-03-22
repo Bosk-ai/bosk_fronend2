@@ -1,5 +1,4 @@
 import { useState } from "react"
-import styled from "styled-components"
 import { Input } from "../../../components/Input/Input"
 import { validateEmail } from "../../../helpers/validation"
 import useLogin from "../../../hooks/auth/useLogin"
@@ -7,10 +6,9 @@ import { Button } from "../Button"
 import { CardFooter } from "../CardFooter"
 import { Footer } from "./Footer"
 import cogoToast from 'cogo-toast';
-import { useNavigate } from "react-router-dom"
+import { StyledLoginCard } from "../../../constats/styles"
 
 export const LoginCard = () => {
-  const navigate = useNavigate();
   const { login } = useLogin();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -74,16 +72,3 @@ export const LoginCard = () => {
     </>
   )
 }
-
-const StyledLoginCard = styled.div`
-  padding: 32px 40px;
-  background: #FFFFFF;
-  box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
-  border-radius: 12px;
-  .input-email {
-    margin-bottom: 20px;
-  }
-  .input-password {
-    margin-bottom: 24px;
-  }
-`

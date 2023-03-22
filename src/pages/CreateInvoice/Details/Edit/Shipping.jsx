@@ -1,8 +1,7 @@
-import styled from "styled-components"
 import { Input } from "../../../../components/Input/Input"
-import euroIcon from "../../../../assets/images/euro.svg";
 import { Select } from "../../../../components/Select/Select";
 import { Checkbox } from "../../../../components/Checkbox";
+import { StyledShipping } from "../../../../constats/styles";
 
 const PHONE_OPTIONS = [
   { title: "ES", value: "1" },
@@ -81,11 +80,3 @@ export const Shipping = () => (
   </StyledShipping>
 )
 
-const StyledShipping = styled.div`
-  .checkbox {
-    margin-bottom: 20px;
-  }
-  .input {
-    margin-bottom: 16px;
-  }
-`

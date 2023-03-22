@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import { StyledInvoicesManageBar } from "../../constats/styles";
 import { Input } from "../../components/Input/Input"
 import { Tabs } from "../../components/Tabs/Tabs"
 import searchIcon from "../../assets/images/search-icon.svg";
@@ -7,7 +7,7 @@ import { Button } from "../../components/Button";
 
 export const ManageBar = ({ tabs, activeTab, onChangeTab }) => {
   return (
-    <StyledManageBar>
+    <StyledInvoicesManageBar>
       <Tabs
         tabs={tabs}
         activeTab={activeTab}
@@ -28,27 +28,6 @@ export const ManageBar = ({ tabs, activeTab, onChangeTab }) => {
           className="filter-btn"
         />
       </div>
-    </StyledManageBar>
+    </StyledInvoicesManageBar>
   )
 }
-
-const StyledManageBar = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-  .search-input {
-    margin-right: 12px;
-    width: 100%;
-  }
-  .filters-btns {
-    display: flex;
-    align-items: center;
-    width: 40%;
-  }
-  .filter-btn {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-  }
-`

@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { Input } from "../../../../components/Input/Input"
 import euroIcon from "../../../../assets/images/euro.svg";
 import { Select } from "../../../../components/Select/Select";
+import { StyledMainInfoBilings } from "../../../../../../constats/styles";
 
 const CURRENCY_OPTIONS = [
   { title: "EUR", value: "1" },
@@ -14,7 +15,7 @@ const TEST_OPTIONS = [
 ]
 
 export const Bilings = () => (
-  <StyledBilings>
+  <StyledMainInfoBilings>
     <Input
       value={""}
       onChange={() => null}
@@ -68,11 +69,5 @@ export const Bilings = () => (
       options={TEST_OPTIONS}
       className="input"
     />
-  </StyledBilings>
+  </StyledMainInfoBilings>
 )
-
-const StyledBilings = styled.div`
-  .input {
-    margin-bottom: 16px;
-  }
-`

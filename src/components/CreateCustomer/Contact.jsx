@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components"
+import { StyledContact } from "../../constats/styles";
 import { Input } from "../Input/Input"
 
 const phonesData = require('countries-phone-masks')
@@ -55,9 +55,3 @@ export const Contact = () => {
     </StyledContact>
   )
 }
-
-const StyledContact = styled.div`
-  .input {
-    margin-bottom: 16px;
-  }
-`

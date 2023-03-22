@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react"
-import styled from "styled-components";
+import { StyledToggleCard } from "../../constats/styles";
 import { Header } from "./Header";
 
 const HEADER_MARGIN_BUTTOM = 24;
@@ -44,15 +44,3 @@ export const ToggleCard = ({ title, children }) => {
     </StyledToggleCard>
   )
 }
-
-const StyledToggleCard = styled.div`
-  padding: 24px;
-  background: #FFFFFF;
-  border: 1px solid #EAECF0;
-  box-shadow: 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06);
-  border-radius: 12px;
-  margin-bottom: 24px;
-  height: ${({ open, headerHeight, contentHeight }) => open ? `${headerHeight + contentHeight}px` : `${headerHeight}px`};
-  overflow: hidden;
-  transition: all .3s; 
-`

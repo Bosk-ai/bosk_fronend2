@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { StyledMainInfoContact } from "../../../../../../constats/styles"
 import { Input } from "../../../../components/Input/Input"
 
 const PHONE_OPTIONS = [
@@ -8,7 +9,7 @@ const PHONE_OPTIONS = [
 ]
 
 export const Contact = () => (
-  <StyledContact>
+  <StyledMainInfoContact>
     <Input
       value={""}
       onChange={() => null}
@@ -46,11 +47,5 @@ export const Contact = () => (
       label="Last name"
       placeholder="Fernandez"
     />
-  </StyledContact>
+  </StyledMainInfoContact>
 )
-
-const StyledContact = styled.div`
-  .input {
-    margin-bottom: 16px;
-  }
-`

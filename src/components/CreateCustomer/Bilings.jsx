@@ -1,5 +1,5 @@
-import styled from "styled-components"
 import euroIcon from "../../assets/images/euro.svg";
+import { StyledBilings } from "../../constats/styles";
 import { Input } from "../Input/Input";
 import { Select } from "../Select/Select";
 
@@ -70,9 +70,3 @@ export const Bilings = () => (
     />
   </StyledBilings>
 )
-
-const StyledBilings = styled.div`
-  .input {
-    margin-bottom: 16px;
-  }
-`

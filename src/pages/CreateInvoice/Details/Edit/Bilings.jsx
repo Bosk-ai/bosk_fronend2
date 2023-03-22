@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import { StyledBilings } from "../../../../constats/styles"
 import { Input } from "../../../../components/Input/Input"
 import euroIcon from "../../../../assets/images/euro.svg";
 import { Select } from "../../../../components/Select/Select";
@@ -70,9 +70,3 @@ export const Bilings = () => (
     />
   </StyledBilings>
 )
-
-const StyledBilings = styled.div`
-  .input {
-    margin-bottom: 16px;
-  }
-`

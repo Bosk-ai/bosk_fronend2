@@ -1,6 +1,6 @@
-import styled from "styled-components";
 import { Input } from "../../components/Input/Input";
 import { ToggleCard } from "../../components/ToggleCard/ToggleCard";
+import { StyledInvoiceFooter } from "../../constats/styles";
 
 export const InvoiceFooter = () => (
   <ToggleCard title="Footer">
@@ -16,9 +16,3 @@ export const InvoiceFooter = () => (
   </ToggleCard>
 )
 
-const StyledInvoiceFooter = styled.div`
-   .textarea .input-wrapper{
-    height: 100px;
-    background: #F9FAFB;
-  }
-`

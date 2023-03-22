@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components"
+import { StyledEditBusinessDetails } from "../../../../../../constats/styles";
 import { Modal } from "../../../../components/Modal/Modal";
 import { Tabs } from "../../../../components/Tabs/Tabs";
 import { Bilings } from "./Bilings";
@@ -25,7 +25,7 @@ export const Edit = () => {
       title="Edit business details"
       button={<EditButton />}
     >
-      <StyledEdit>
+      <StyledEditBusinessDetails>
         <Tabs
           tabs={TABS}
           activeTab={activeTab}
@@ -40,14 +40,8 @@ export const Edit = () => {
                   : null
 
         }
-      </StyledEdit>
+      </StyledEditBusinessDetails>
     </Modal>
   )
 }
 
-const StyledEdit = styled.div`
-  text-align: left !important;
-  .tabs {
-    margin: 0 auto 20px;
-  }
-`

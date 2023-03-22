@@ -1,6 +1,6 @@
-import styled from "styled-components"
 import { Input } from "../../../../components/Input/Input"
 import deleteIcon from "../../../../assets/images/delete.svg";
+import { StyledItemRow } from "../../../../constats/styles";
 
 export const ItemRow = ({ description, quantity, price, onChange, onDelete }) => (
   <StyledItemRow>
@@ -40,13 +40,3 @@ export const ItemRow = ({ description, quantity, price, onChange, onDelete }) =>
     </td>
   </StyledItemRow>
 )
-
-const StyledItemRow = styled.tr`
-  .delete-btn {
-    cursor: pointer;
-    transition: all .3s;
-    &:hover {
-      opacity: .5;
-    }
-  }
-`

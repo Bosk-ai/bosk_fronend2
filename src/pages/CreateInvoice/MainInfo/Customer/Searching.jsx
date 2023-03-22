@@ -1,10 +1,10 @@
-import styled from "styled-components"
 import searchIcon from "../../../../assets/images/search-full.svg";
 import { useState } from "react";
 import { CreateCustomer } from "../../../../components/CreateCustomer/CreateCustomer";
 import { Input } from "../../../../components/Input/Input";
 import { Dropdown } from "../../../../components/Dropdown";
 import { CreateButton } from "./CreateButton";
+import { StyledCreateInvoiceSearching } from "../../../../constats/styles";
 
 const TEST_OPTIONS = [
   { title: "Customer 1", value: "1" },
@@ -26,7 +26,7 @@ export const Searching = () => {
   return (
     <>
       <CreateCustomer open={modal} onClose={handleCloseModal} />
-      <StyledSearching>
+      <StyledCreateInvoiceSearching>
         <Input
           value={""}
           onChange={() => null}
@@ -43,16 +43,7 @@ export const Searching = () => {
           showSelected
           footer={<CreateButton onClick={() => setModal(true)} />}
         />
-      </StyledSearching>
+      </StyledCreateInvoiceSearching>
     </>
   )
 }
-
-const StyledSearching = styled.div`
-  width: 320px;
-  position: relative;
-  height: max-content;
-  .dropdown {
-    width: 100%;
-  }
-`

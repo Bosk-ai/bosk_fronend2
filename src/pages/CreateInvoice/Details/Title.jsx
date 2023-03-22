@@ -1,14 +1,8 @@
-import styled from "styled-components"
+import { StyledCreateInvoiceDetailsTitle } from "../../../constats/styles";
 
 export const Title = () => (
-  <StyledTitle>Invoice</StyledTitle>
+  <StyledCreateInvoiceDetailsTitle>
+    Invoice
+  </StyledCreateInvoiceDetailsTitle>
 )
 
-const StyledTitle = styled.div`
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 44px;
-  letter-spacing: -0.02em;
-  color: #475467;
-  margin-bottom: 16px;
-`

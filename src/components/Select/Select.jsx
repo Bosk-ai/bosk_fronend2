@@ -1,5 +1,5 @@
-import styled from "styled-components"
 import arrowIcon from "../../assets/images/arrow.svg";
+import { StyledSelect } from "../../constats/styles";
 import { Dropdown } from "../Dropdown";
 
 export const Select = ({
@@ -25,48 +25,3 @@ export const Select = ({
     </StyledSelect>
   )
 }
-
-const StyledSelect = styled.div`
-  .label {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  color: #344054;
-  margin-bottom: 6px;
-  }
- .select-wrapper {
-  display: flex;
-  align-items: center;
-  padding: 10px 14px;
-  height: 44px;
-  background: #FFFFFF;
-  border: 1px solid #D0D5DD;
-  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
-  border-radius: 8px;
-  width: 100%;
-  position: relative;
-  .placeholder {
-    color: #667085;
-  }
-  .value {
-    width: 100%;
-    text-align: left;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    color: #101828;
-  }
-  &:focus {
-    img {
-      transform: rotate(180deg);
-    }
-  }
-  &:focus > .dropdown {
-    opacity: 1;
-    visibility: visible;
-  }
-  .dropdown {
-    width: 100%;
-  }
- }
-`

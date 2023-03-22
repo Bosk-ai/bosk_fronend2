@@ -1,17 +1,8 @@
-import styled from "styled-components";
 import spinnerIcon from "../../assets/images/spinner.svg";
+import { StyledTablePreloader } from "../../constats/styles";
 
 export const Preloader = ({ className }) => (
-  <StyledPreloader className={className}>
+  <StyledTablePreloader className={className}>
     <img src={spinnerIcon} alt="" />
-  </StyledPreloader>
+  </StyledTablePreloader>
 )
-
-const StyledPreloader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  img {
-    height: 100px;
-  }
-`

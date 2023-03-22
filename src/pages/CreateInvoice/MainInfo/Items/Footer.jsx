@@ -1,5 +1,5 @@
-import styled from "styled-components"
 import { Select } from "../../../../components/Select/Select"
+import { StyledTax } from "../../../../constats/styles";
 
 export const Footer = ({ items, tax, onChangeTax, taxOptions }) => {
   const total = items.map(({ price, quantity }) => price * quantity).reduce((a, b) => a + b, 0);
@@ -42,13 +42,3 @@ export const Footer = ({ items, tax, onChangeTax, taxOptions }) => {
   )
 }
 
-const StyledTax = styled.div`
-  display: flex;
-  align-items: center;
-  b {
-    margin-right: 8px;
-  }
-  .select {
-    width: 160px;
-  }
-`

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import { StyledCustomer } from "../../../../constats/styles"
 import { Empty } from "./Empty"
 import { Info } from "./Info"
 
@@ -11,7 +11,3 @@ export const Customer = () => {
   )
 }
 
-const StyledCustomer = styled.div`
-  display: grid;
-  grid-template-columns: 50% 50%;
-`

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import { StyledCheckbox } from "../constats/styles"
 
 export const Checkbox = ({ label, className }) => (
   <StyledCheckbox className={className}>
@@ -6,13 +6,3 @@ export const Checkbox = ({ label, className }) => (
     <span className="label">{label}</span>
   </StyledCheckbox>
 )
-
-const StyledCheckbox = styled.div`
-  .label {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    color: #344054;
-    margin-left: 8px;
-  }
-`

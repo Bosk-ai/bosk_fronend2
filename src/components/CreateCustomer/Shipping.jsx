@@ -1,5 +1,5 @@
 import { useState } from "react"
-import styled from "styled-components"
+import { StyledShipping } from "../../constats/styles"
 import { Checkbox } from "../Checkbox"
 import { Input } from "../Input/Input"
 import { Select } from "../Select/Select"
@@ -84,12 +84,3 @@ export const Shipping = () => {
     </StyledShipping>
   )
 }
-
-const StyledShipping = styled.div`
-  .checkbox {
-    margin-bottom: 20px;
-  }
-  .input {
-    margin-bottom: 16px;
-  }
-`

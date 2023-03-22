@@ -1,9 +1,9 @@
-import styled from "styled-components"
 import { ToggleCard } from "../../../components/ToggleCard/ToggleCard"
 import { Title } from "./Title"
 import { Input } from "../../../components/Input/Input";
 import { Info } from "./Info";
 import { Edit } from "./Edit/Edit";
+import { StyledDetails } from "../../../constats/styles";
 
 export const Details = () => {
   return (
@@ -23,15 +23,3 @@ export const Details = () => {
   )
 }
 
-const StyledDetails = styled.div`
-  text-align: right;
-  .sumary-input {
-    width: 100%;
-    max-width: 670px;
-    margin-left: auto;
-    margin-bottom: 16px;
-    input {
-      text-align: right;
-    }
-  }
-`

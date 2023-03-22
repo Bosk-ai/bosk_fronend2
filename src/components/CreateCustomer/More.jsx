@@ -1,8 +1,8 @@
-import styled from "styled-components"
 import { Input } from "../Input/Input"
+import { StyledCreateCustomerMore } from "../../constats/styles"
 
 export const More = () => (
-  <StyledMore>
+  <StyledCreateCustomerMore>
     <Input
       value={""}
       onChange={() => null}
@@ -18,11 +18,6 @@ export const More = () => (
       className="input"
       textarea
     />
-  </StyledMore>
+  </StyledCreateCustomerMore>
 )
 
-const StyledMore = styled.div`
-  .input {
-    margin-bottom: 16px;
-  }
-`

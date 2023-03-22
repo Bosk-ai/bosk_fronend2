@@ -1,5 +1,5 @@
-import styled from "styled-components"
 import { Input } from "../../../../components/Input/Input"
+import { StyledContact } from "../../../../constats/styles"
 
 const PHONE_OPTIONS = [
   { title: "ES", value: "1" },
@@ -48,9 +48,3 @@ export const Contact = () => (
     />
   </StyledContact>
 )
-
-const StyledContact = styled.div`
-  .input {
-    margin-bottom: 16px;
-  }
-`

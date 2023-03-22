@@ -1,5 +1,4 @@
 import { useState } from "react"
-import styled from "styled-components"
 import { Input } from "../../../components/Input/Input"
 import { validateEmail } from "../../../helpers/validation"
 import useCreateAccount from "../../../hooks/auth/useCreateAccount"
@@ -7,11 +6,10 @@ import { Button } from "../Button"
 import { CardFooter } from "../CardFooter"
 import { Footer } from "./Footer"
 import cogoToast from 'cogo-toast';
-import { useNavigate } from "react-router-dom"
+import { StyledSingUpCard } from "../../../constats/styles"
 
-export const SingUpCard = ({ onAuth }) => {
+export const SingUpCard = () => {
   const { createAccount } = useCreateAccount();
-  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -86,15 +84,3 @@ export const SingUpCard = ({ onAuth }) => {
   )
 }
 
-const StyledSingUpCard = styled.div`
-  padding: 32px 40px;
-  background: #FFFFFF;
-  box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
-  border-radius: 12px;
-  .input {
-    margin-bottom: 20px;
-  }
-  .input-password {
-    margin-bottom: 6px;
-  }
-`

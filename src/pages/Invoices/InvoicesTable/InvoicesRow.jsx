@@ -1,7 +1,7 @@
-import styled from "styled-components";
 import actionsIcon from "../../../assets/images/actions.svg";
 import paidIcon from "../../../assets/images/paid.svg";
 import { Dropdown } from "../../../components/Dropdown";
+import { StyledInvoicesRow } from "../../../constats/styles";
 import { formatDate } from "../../../helpers/date";
 
 export const InvoicesRow = ({
@@ -46,39 +46,3 @@ export const InvoicesRow = ({
   </StyledInvoicesRow>
 )
 
-const StyledInvoicesRow = styled.tr`
-  .status {
-    display: flex;
-    align-items: center;
-    padding: 2px 8px 2px 6px;
-    background: #ECFDF3;
-    mix-blend-mode: multiply;
-    border-radius: 16px;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
-    text-align: center;
-    color: #12B76A;
-    width: max-content;
-    margin: 0 auto;
-    img {
-      margin-right: 4px;
-    }
-  }
-  .actions-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .actions-btn {
-    margin-left: 12px;
-    cursor: pointer;
-    position: relative;
-    &:focus {
-      .dropdown {
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-  }
-`

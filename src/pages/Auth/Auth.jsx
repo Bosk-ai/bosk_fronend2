@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
-import styled from "styled-components";
+import { StyledAuth } from "../../constats/styles";
 import { LoginCard } from "./LoginCard/LoginCard";
 import { Logo } from "./Logo";
-import { SingUpCard } from "./SinginCard/SingUpCard";
+import { SingUpCard } from "./SingUpCard/SingUpCard";
 import { Subtitle } from "./Subtitle";
 import { Title } from "./Title";
 
@@ -20,8 +20,3 @@ export const Auth = ({ onAuth }) => {
   )
 }
 
-const StyledAuth = styled.div`
-  width: 90%;
-  max-width: 420px;
-  margin: 0 auto;
-`

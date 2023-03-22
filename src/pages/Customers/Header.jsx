@@ -1,9 +1,9 @@
-import styled from "styled-components";
 import { Button } from "../../components/Button";
 import { Title } from "../../components/Title";
+import { StyledCustomersHeader } from "../../constats/styles";
 
 export const Header = ({ onAddCustomer }) => (
-  <StyledHeader>
+  <StyledCustomersHeader>
     <Title title="Customers" />
     <Button
       onClick={onAddCustomer}
@@ -11,15 +11,6 @@ export const Header = ({ onAddCustomer }) => (
       color="primary"
       className="add-customer-btn"
     />
-  </StyledHeader>
+  </StyledCustomersHeader>
 )
 
-const StyledHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 32px;
-  .add-customer-btn {
-    height: 40px;
-  }
-`

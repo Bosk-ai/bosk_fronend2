@@ -1,5 +1,5 @@
 import { useState } from "react"
-import styled from "styled-components";
+import { StyledCustomersTable } from "../../../constats/styles";
 import { Table } from "../../../components/Table/Table"
 import { CustomersRow } from "./CustomersRow";
 
@@ -58,11 +58,3 @@ export const CustomersTable = ({ onEditCustomer }) => {
   )
 }
 
-const StyledCustomersTable = styled.div`
-  .phone-column {
-    width: 30%;
-  }
-  .actions-coumn {
-    width: 100px;
-  }
-`

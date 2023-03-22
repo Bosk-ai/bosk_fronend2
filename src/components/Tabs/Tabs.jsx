@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import { StyledTabs } from "../../constats/styles"
 import { Tab } from "./Tab"
 
 export const Tabs = ({ tabs, activeTab, onChangeTab, className }) => {
@@ -18,13 +18,3 @@ export const Tabs = ({ tabs, activeTab, onChangeTab, className }) => {
     </StyledTabs>
   )
 }
-
-const StyledTabs = styled.div`
-  padding: 4px;
-  background: #F2F4F7;
-  border: 1px solid #F2F4F7;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  width: max-content;
-`
