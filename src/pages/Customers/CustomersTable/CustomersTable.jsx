@@ -3,7 +3,7 @@ import { StyledCustomersTable } from "../../../constats/styles";
 import { Table } from "../../../components/Table/Table"
 import { CustomersRow } from "./CustomersRow";
 
-export const CustomersTable = ({ onEditCustomer }) => {
+export const CustomersTable = ({ customers, onEditCustomer, onDeleteCustomer }) => {
   const [sortBy, setSortBy] = useState(null);
   const [sortDesc, setSortDesc] = useState(false);
 
@@ -11,6 +11,10 @@ export const CustomersTable = ({ onEditCustomer }) => {
     const sortDescStatus = sortBy === column ? !sortDesc : false;
     setSortBy(column);
     setSortDesc(sortDescStatus)
+  }
+
+  const handleDeleteCustomer = (customerId) => {
+    onDeleteCustomer(customerId);
   }
 
   return (
@@ -46,12 +50,20 @@ export const CustomersTable = ({ onEditCustomer }) => {
           { title: "Actions", className: "actions-coumn" },
         ]}
       >
-        <CustomersRow onEditCustomer={onEditCustomer} />
-        <CustomersRow onEditCustomer={onEditCustomer} />
-        <CustomersRow onEditCustomer={onEditCustomer} />
-        <CustomersRow onEditCustomer={onEditCustomer} />
-        <CustomersRow onEditCustomer={onEditCustomer} />
-        <CustomersRow onEditCustomer={onEditCustomer} />
+        {
+          customers &&
+          customers.map((customer, i) => (
+            <CustomersRow
+              key={i}
+              id={customer.id}
+              name={customer.client_name}
+              email={customer.email}
+              phone={customer.phone}
+              onEditCustomer={() => onEditCustomer(customer)}
+              onDeleteCustomer={() => handleDeleteCustomer(customer.id)}
+            />
+          ))
+        }
       </Table>
     </StyledCustomersTable>
 

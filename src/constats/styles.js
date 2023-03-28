@@ -175,7 +175,7 @@ export const StyledSelect = styled.div`
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
-    color: #344054;
+    color: ${({ error }) => error ? "red" : "#344054"} ;
     margin-bottom: 6px;
   }
   .select-wrapper {
@@ -184,7 +184,7 @@ export const StyledSelect = styled.div`
     padding: 10px 14px;
     height: 44px;
     background: #FFFFFF;
-    border: 1px solid #D0D5DD;
+    border: 1px solid ${({ error }) => error ? "red" : "#D0D5DD"};
     box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
     border-radius: 8px;
     width: 100%;
@@ -198,7 +198,7 @@ export const StyledSelect = styled.div`
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    color: #101828;
+    color: ${({ error }) => error ? "red" : "#101828"} ;
   }
   &:focus {
     img {
@@ -471,7 +471,7 @@ export const StyledToggleCardHeader = styled.div`
   ${({ open }) => open && "img{transform: rotate(180deg);}"}
 `
 
-export const StyledButton = styled.div`
+export const StyledButton = styled.button`
   display: flex;
   align-items: center;
   padding: 10px 16px;
@@ -487,6 +487,10 @@ export const StyledButton = styled.div`
   cursor: pointer;
   .icon {
     margin-right: 8px;
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: no-drop;
   }
 `
 export const StyledCheckbox = styled.div`
@@ -528,12 +532,13 @@ export const StyledDropdown = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    &:hover {
+    &:hover, &.selected {
       background: #3440541c;
     }
   }
-  .selected {
+  img {
     margin-left: 8px;
+    transform: rotate(0deg) !important;
   }
   ${({ open }) => open && "opacity: 1 !important; visibility: visible !important;"}
 `

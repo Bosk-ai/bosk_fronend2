@@ -7,12 +7,13 @@ import { CUSTOMERS } from "../../constats/types";
 
 const useGetCustomers = () => {
 
-  const { data: customers = null } = useQuery(
-    [CUSTOMERS],
-    async () => (await axios.get(`${hostname}/customers`, { headers: headers() })),
-  );
+  const handleGetCustomers = (paginatePage = 1, paginatePer = 50) => {
+    return axios.get(`${hostname}/customers`, { headers: headers(), params: { paginatePage, paginatePer } })
+  }
 
-  return { customers }
+  return {
+    getCustomers: handleGetCustomers
+  }
 }
 
 export default useGetCustomers;

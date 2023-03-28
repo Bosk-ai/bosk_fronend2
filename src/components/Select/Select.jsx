@@ -10,16 +10,18 @@ export const Select = ({
   placeholder = "",
   className,
   disabled,
+  error
 }) => {
   return (
-    <StyledSelect className={className}>
+    <StyledSelect className={className} error={error}>
       {label && <div className="label">{label}</div>}
       <button className="select-wrapper">
-        <div className={`value ${!value && "placeholder"}`}>{value ? value.title : placeholder ? placeholder : ""}</div>
+        <div className={`value ${!value && "placeholder"}`}>{value ? options.find(opt => opt.value === value)?.title : placeholder ? placeholder : ""}</div>
         <img src={arrowIcon} alt="" />
         <Dropdown
           options={options}
           onSelectOption={onChange}
+          selected={value}
         />
       </button>
     </StyledSelect>
