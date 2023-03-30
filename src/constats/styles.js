@@ -799,8 +799,8 @@ export const StyledCreateInvoiceDetailsTitle = styled.div`
 
 export const StyledCreateInvoiceDetailEdit = styled.div`
   text-align: left !important;
-  .tabs {
-    margin: 0 auto 20px;
+  .input {
+    margin-bottom: 10px;
   }
 `
 
@@ -925,7 +925,7 @@ export const StyledEmptyCustomer = styled.div`
   width: 325px;
   height: 164px;
   background: #FCFAFF;
-  border: 1px dashed #6941C6;
+  border: dashed ${({ error }) => error ? "3px red" : " 1px #6941C6"};
   border-radius: 12px;
   cursor: pointer;
   transition: all .3s;
@@ -974,6 +974,23 @@ export const StyledCreateInvoiceSearching = styled.div`
   height: max-content;
   .dropdown {
     width: 100%;
+  }
+  .selected-customer-label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: right;
+    color: rgb(102, 112, 133);
+    margin-right: 10px;
+  }
+  .selected-customer {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(52, 64, 84);
   }
 `
 export const StyledAddItem = styled.tr`

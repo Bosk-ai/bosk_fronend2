@@ -3,7 +3,7 @@ import { StyledTax } from "../../../../constats/styles";
 
 export const Footer = ({ items, tax, onChangeTax, taxOptions }) => {
   const total = items.map(({ price, quantity }) => price * quantity).reduce((a, b) => a + b, 0);
-  const taxValue = (total / 100 * tax.value).toFixed(2);
+  const taxValue = (total / 100 * tax).toFixed(2);
 
   return (
     <>
@@ -35,7 +35,7 @@ export const Footer = ({ items, tax, onChangeTax, taxOptions }) => {
         <td></td>
         <td></td>
         <td><b>Total</b></td>
-        <td><b className="large">€{total + taxValue}</b></td>
+        <td><b className="large">€{total + Number(taxValue)}</b></td>
         <td></td>
       </tr>
     </>

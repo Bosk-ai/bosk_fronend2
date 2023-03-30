@@ -10,6 +10,7 @@ import { More } from "./More";
 import { Shipping } from "./Shipping";
 import cogoToast from 'cogo-toast';
 import { useEffect } from "react";
+import { handleCheckRequiredFileds } from "../../helpers/validation";
 
 const TABS = [
   { title: "Contact", value: "Contact" },
@@ -49,7 +50,7 @@ export const CreateCustomer = ({
   const { createCustomer } = useCreateCustomer();
   const { editCustomer } = useEditCustomer();
   const [loading, setLoading] = useState(false);
-  const [errors, setSetErrors] = useState([]);
+  const [errors, setErrors] = useState([]);
 
   const handleChangeTab = (tab) => setActiveTab(tab);
   const handleClose = () => {
@@ -60,11 +61,11 @@ export const CreateCustomer = ({
 
   const handleUpdateData = (fieldName, value) => {
     setData({ ...data, [fieldName]: value });
-    errors.includes(fieldName) && setSetErrors(errors.filter(error => error !== fieldName));
+    errors.includes(fieldName) && setErrors(errors.filter(error => error !== fieldName));
   };
 
   const handleShowReqiredFieldsError = (emptyRequiredFields) => {
-    setSetErrors(emptyRequiredFields);
+    setErrors(emptyRequiredFields);
     cogoToast.error("Please fill out all required fields", { hideAfter: 3, position: "top-right", });
 
     if (emptyRequiredFields.includes("client_name")) {
@@ -74,32 +75,17 @@ export const CreateCustomer = ({
     }
   }
 
-  const handleCheckRequiredFileds = () => {
-    let emptyRequiredFields = [];
 
-    Object.entries(data).forEach(field => {
-      if (REQUIRED_FIELDS.includes(field[0]) && field[1].length === 0) {
-        emptyRequiredFields = [...emptyRequiredFields, field[0]]
-      }
-    })
-
-    if (emptyRequiredFields.length > 0) {
-      handleShowReqiredFieldsError(emptyRequiredFields);
-      return false;
-    }
-
-    return true
-  }
 
   const handleCreateCustomer = () => {
-    const allRequiredFilledsNotEmpty = handleCheckRequiredFileds()
+    const allRequiredFilledsNotEmpty = handleCheckRequiredFileds(data, REQUIRED_FIELDS, handleShowReqiredFieldsError)
     if (allRequiredFilledsNotEmpty) {
       setLoading(true);
       createCustomer(data)
         .then(resp => {
           setLoading(false);
           if (resp?.status === 201) {
-            onCreatedCustomer(resp?.data)
+            onCreatedCustomer && onCreatedCustomer(resp?.data)
             cogoToast.success("Customer has been created successfully", { hideAfter: 3, position: "top-right", });
             handleClose()
           } else {
@@ -117,7 +103,7 @@ export const CreateCustomer = ({
         .then(resp => {
           setLoading(false);
           if (resp?.status === 200) {
-            onUpdateCustomer(resp?.data)
+            onUpdateCustomer && onUpdateCustomer(resp?.data)
             cogoToast.success("Customer has been updated successfully", { hideAfter: 3, position: "top-right", });
             handleClose()
           } else {

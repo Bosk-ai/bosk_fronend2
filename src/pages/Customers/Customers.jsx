@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react"
 import { useState } from "react"
 import { CreateCustomer } from "../../components/CreateCustomer/CreateCustomer"
 import useGetCustomers from "../../hooks/customers/useGetCustomers"
+import useGetCustomersCount from "../../hooks/customers/useGetCustomersCount"
 import { CustomersTable } from "./CustomersTable/CustomersTable"
 import { Header } from "./Header"
 import { ManageBar } from "./ManageBar"
@@ -9,14 +10,18 @@ import { ManageBar } from "./ManageBar"
 export const Customers = () => {
   const [open, setOpen] = useState();
   const [customers, setCustomers] = useState([]);
+  const [customersCount, setCustomersCount] = useState(0);
   const [selectedCustomer, setSelectedCustomer] = useState(null);
   const { getCustomers } = useGetCustomers();
+  const { getCustomersCount } = useGetCustomersCount();
   const [page, setPage] = useState(1);
   const [isLastPage, setIsLastPage] = useState(false);
   const loading = useRef(false);
 
   useEffect(() => {
     getCustomers().then(resp => setCustomers(resp.data))
+    getCustomersCount().then(resp => setCustomersCount(resp.data))
+    // eslint-disable-next-line 
   }, [])
 
   const handleCloseModal = () => {
@@ -30,9 +35,15 @@ export const Customers = () => {
     setOpen(true)
   }
 
-  const handleAddCustomer = (customer) => setCustomers([...customers, customer]);
+  const handleAddCustomer = (customer) => {
+    setCustomers([...customers, customer]);
+    setCustomersCount(customersCount + 1)
+  };
+  const handleDeleteCustomer = (customerId) => {
+    setCustomers(customers.filter(customer => customer.id !== customerId));
+    setCustomersCount(customersCount - 1)
+  }
   const handleUpdateCustomer = (updatedCustomer) => setCustomers(customers.map(customer => (customer.id === updatedCustomer.id) ? updatedCustomer : customer));
-  const handleDeleteCustomer = (customerId) => setCustomers(customers.filter(customer => customer.id !== customerId));
 
   const handleLoadMoreCustomers = (e) => {
     const scrolledHeight = e.target.scrollTop + e.target.clientHeight;
@@ -51,8 +62,9 @@ export const Customers = () => {
   }
 
   useEffect(() => {
-    document.querySelector(".pages").addEventListener("scroll", handleLoadMoreCustomers)
-    return () => document.querySelector(".pages").removeEventListener("scroll", handleLoadMoreCustomers)
+    document.querySelector(".pages").addEventListener("scroll", handleLoadMoreCustomers);
+    return () => document.querySelector(".pages").removeEventListener("scroll", handleLoadMoreCustomers);
+    // eslint-disable-next-line 
   }, [customers, loading])
 
   return (
@@ -65,7 +77,7 @@ export const Customers = () => {
         onCreatedCustomer={handleAddCustomer}
       />
       <Header onAddCustomer={handleOpenModal} />
-      <ManageBar customersCount={customers?.length ?? 0} />
+      <ManageBar customersCount={customersCount} />
       <CustomersTable
         customers={customers}
         onEditCustomer={handleEditCustomer}

@@ -79,6 +79,7 @@ export const Input = ({
                   onFocus={onFocus}
                   onBlur={onBlur}
                   min="0"
+                  autocomplete="off"
                 />
         }
         {iconRight && <img src={iconRight} alt="" className="icon-right" />}

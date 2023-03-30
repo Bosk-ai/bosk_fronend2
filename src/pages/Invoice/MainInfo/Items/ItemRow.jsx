@@ -2,12 +2,12 @@ import { Input } from "../../../../components/Input/Input"
 import deleteIcon from "../../../../assets/images/delete.svg";
 import { StyledItemRow } from "../../../../constats/styles";
 
-export const ItemRow = ({ description, quantity, price, onChange, onDelete }) => (
+export const ItemRow = ({ name, quantity, price, amount, onChange, onDelete }) => (
   <StyledItemRow>
     <td>
       <Input
-        value={description}
-        onChange={(value) => onChange("description", value)}
+        value={name}
+        onChange={(value) => onChange("name", value)}
         placeholder="Enter item description"
       />
     </td>
@@ -28,7 +28,7 @@ export const ItemRow = ({ description, quantity, price, onChange, onDelete }) =>
       />
     </td>
     <td>
-      <b>€${Number(price) * Number(quantity)}</b>
+      <b>€${amount}</b>
     </td>
     <td>
       <img

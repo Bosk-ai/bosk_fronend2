@@ -2,7 +2,7 @@ import { Button } from "../../components/Button";
 import { Title } from "../../components/Title";
 import { StyledCreateInvoiceHeader } from "../../constats/styles";
 
-export const Header = () => (
+export const Header = ({ onSave, loading }) => (
   <StyledCreateInvoiceHeader>
     <Title title="New invoice" />
     <div className="btns-wrapper">
@@ -10,12 +10,14 @@ export const Header = () => (
         onClick={() => null}
         title="Preview"
         className="btn btn-preview"
+        disabled={loading}
       />
       <Button
-        onClick={() => null}
+        onClick={onSave}
         title="Save as .pdf"
         color="primary"
         className="btn"
+        disabled={loading}
       />
     </div>
   </StyledCreateInvoiceHeader>

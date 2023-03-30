@@ -7,3 +7,15 @@ export const formatDate = (dateString) => {
 
   return `${month} ${day}, ${year} `
 };
+
+const handleAddZero = (number) => number > 10 ? number : `0${number}`;
+
+export const formatInputDate = (dateString) => {
+  const date = new Date(dateString);
+  const month = date.getMonth()
+  const day = date.getDate();
+  const year = date.getFullYear();
+
+  return `${handleAddZero(year)}-${handleAddZero(month)}-${handleAddZero(day)}`
+}
+

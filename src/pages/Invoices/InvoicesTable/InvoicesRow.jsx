@@ -8,7 +8,9 @@ export const InvoicesRow = ({
   dueDate = "",
   number = "",
   purchaserName = "",
-  total = ""
+  total = "",
+  onDelete,
+  id
 }) => (
   <StyledInvoicesRow>
     <td>
@@ -32,12 +34,13 @@ export const InvoicesRow = ({
     </td>
     <td>
       <div className="actions-wrapper">
-        <a href="/#/create-invoice"> View</a>
+        <a href={`/#/invoice/${id}`}> View</a>
         <button className="actions-btn" >
           <img src={actionsIcon} alt="" />
           <Dropdown
+            onSelectOption={opt => opt.value === "delete" && onDelete()}
             options={[
-              { title: "Remove", value: "test" }
+              { title: "Remove", value: "delete" }
             ]}
           />
         </button>

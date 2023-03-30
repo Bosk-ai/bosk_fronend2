@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Table } from "../../../components/Table/Table"
 import { InvoicesRow } from "./InvoicesRow";
 
-export const InvoicesTable = ({ invoices }) => {
+export const InvoicesTable = ({ invoices, onDelete }) => {
   const [sortBy, setSortBy] = useState(null);
   const [sortDesc, setSortDesc] = useState(false);
 
@@ -51,13 +51,15 @@ export const InvoicesTable = ({ invoices }) => {
       >
         {
           invoices &&
-          invoices.map(({ due_date, number, purchaser_name, total }, i) => (
+          invoices.map(({ due_date, number, purchaser_name, total, id }, i) => (
             <InvoicesRow
               key={i}
               dueDate={due_date}
               number={number}
               purchaserName={purchaser_name}
               total={total}
+              onDelete={() => onDelete(id)}
+              id={id}
             />
           ))
         }

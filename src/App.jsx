@@ -4,8 +4,8 @@ import './App.css';
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { StyledApp } from './constats/styles';
 import { Auth } from './pages/Auth/Auth';
-import { CreateInvoice } from './pages/CreateInvoice/CreateInvoice';
 import { Customers } from './pages/Customers/Customers';
+import { Invoice } from './pages/Invoice/Invoice';
 import { Invoices } from './pages/Invoices/Invoices';
 
 export const App = () => {
@@ -35,7 +35,8 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<></>} />
           <Route path="/invoices" element={<Invoices />} />
-          <Route path="/create-invoice" element={<CreateInvoice />} />
+          <Route path="/create-invoice" element={<Invoice />} />
+          <Route path="/invoice/:invoiceId" element={<Invoice />} />
           <Route path="/customers" element={<Customers />} />
         </Routes>
       </div>
