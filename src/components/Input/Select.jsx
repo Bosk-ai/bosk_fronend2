@@ -5,7 +5,7 @@ import { Dropdown } from "../Dropdown";
 export const Select = ({ options, value, onSelect, right }) => {
   return (
     <StyledInputSelect right={right}>
-      {value}
+      {options?.find(opt => opt.value === value)?.title ?? ""}
       <img src={arrowIcon} alt="" />
       <Dropdown
         options={options}

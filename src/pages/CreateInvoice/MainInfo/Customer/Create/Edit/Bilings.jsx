@@ -19,7 +19,7 @@ export const Bilings = () => (
     <Input
       value={""}
       onChange={() => null}
-      label="Currency"
+      label="Currency *"
       placeholder="Euro"
       className="input"
       selectRight={CURRENCY_OPTIONS}

@@ -6,7 +6,7 @@ import { headers } from "../../api/instance";
 const useLogin = () => {
 
   const handleLogin = (data) => {
-    return axios.post(`${hostname}/users/sign_in`, data, headers())
+    return axios.post(`${hostname}/users/sign_in`, data, { headers: headers() })
       .then(resp => resp)
       .catch(error => error)
   }

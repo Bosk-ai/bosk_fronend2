@@ -24,7 +24,6 @@ export const LoginCard = () => {
     login({ user: { email, password } })
       .then(resp => {
         setLoading(false);
-        console.log(resp)
         if (resp?.status === 200) {
           const token = resp?.headers?.authorization;
           if (token) {

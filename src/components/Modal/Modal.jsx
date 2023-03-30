@@ -4,7 +4,7 @@ import { StyledModal } from "../../constats/styles";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
-export const Modal = ({ button, title, children, openModal, onCloseModal }) => {
+export const Modal = ({ button, title, children, openModal, onCloseModal, onSave, loading }) => {
   const [open, setOpen] = useState(false);
 
   const handleOpenModal = () => setOpen(true);
@@ -26,7 +26,7 @@ export const Modal = ({ button, title, children, openModal, onCloseModal }) => {
             onClose={handleCloseModal}
           />
           {children}
-          <Footer onClose={handleCloseModal} />
+          <Footer onClose={handleCloseModal} onSave={onSave} loading={loading} />
         </div>
       </StyledModal>
       {button ? React.cloneElement(button, { onClick: handleOpenModal }) : null}

@@ -21,7 +21,8 @@ export const Input = ({
   onFocus,
   onBlur,
   mask,
-  error
+  error,
+  noShowInputValue
 }) => {
   return (
     <StyledInput
@@ -43,35 +44,25 @@ export const Input = ({
         }
         {iconLeft && <img src={iconLeft} alt="" className="icon-left" />}
         {
-          textarea
-            ? <textarea
-              value={value}
-              onChange={(e) => onChange(e.target.value)}
-              placeholder={placeholder}
-              disabled={disabled}
-              onFocus={onFocus}
-              onBlur={onBlur}
-            />
-            :
-            mask ? <IMaskInput
-              mask={mask}
-              radix="."
-              unmask={true} // true|false|'typed'
-              onAccept={
-                (value, mask) => console.log(value)
-              }
-              // value={value}
-              // onChange={(e) => onChange(e.target.value)}
-              placeholder={placeholder}
-              type={type}
-              disabled={disabled}
-              onFocus={onFocus}
-              onBlur={onBlur}
-              min="0"
-            />
-              : <input
+          noShowInputValue
+            ? <input disabled />
+            : textarea
+              ? <textarea
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
+                placeholder={placeholder}
+                disabled={disabled}
+                onFocus={onFocus}
+                onBlur={onBlur}
+              />
+              :
+              mask ? <IMaskInput
+                mask={mask}
+                radix="."
+                unmask={true} // true|false|'typed'
+                onAccept={(value) => onChange(value)}
+                // value={value}
+                // onChange={(e) => onChange(e.target.value)}
                 placeholder={placeholder}
                 type={type}
                 disabled={disabled}
@@ -79,6 +70,16 @@ export const Input = ({
                 onBlur={onBlur}
                 min="0"
               />
+                : <input
+                  value={value}
+                  onChange={(e) => onChange(e.target.value)}
+                  placeholder={placeholder}
+                  type={type}
+                  disabled={disabled}
+                  onFocus={onFocus}
+                  onBlur={onBlur}
+                  min="0"
+                />
         }
         {iconRight && <img src={iconRight} alt="" className="icon-right" />}
         {

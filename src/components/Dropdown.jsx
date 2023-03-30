@@ -1,7 +1,7 @@
 import checkIcon from "../assets/images/check.svg";
 import { StyledDropdown } from "../constats/styles";
 
-export const Dropdown = ({ options, onSelectOption, open, footer, selected, showSelected }) => (
+export const Dropdown = ({ options, onSelectOption, open, footer, selected = "", showSelected }) => (
   <StyledDropdown className="dropdown" open={open}>
     <div className="options">
       {
@@ -9,12 +9,12 @@ export const Dropdown = ({ options, onSelectOption, open, footer, selected, show
           <div
             key={i}
             onClick={() => onSelectOption(opt)}
-            className="option"
+            className={`option ${((selected.length > 0) && (opt?.value === selected)) && "selected"}`}
           >
             {opt.title}
             {
-              ((opt?.value === selected?.value) && showSelected) &&
-              <img src={checkIcon} alt="" className="selected" />
+              (opt?.value === selected) &&
+              <img src={checkIcon} alt="" />
             }
           </div>
         ))

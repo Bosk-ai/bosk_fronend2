@@ -12,7 +12,6 @@ export const NavLinks = () => {
     { title: "Invoices", link: "/invoices", icon: invoicesIcon },
     { title: "Customers", link: "/customers", icon: customersIcon },
   ]
-  console.log(pathname)
 
   return (
     <div>
