@@ -6,27 +6,49 @@ import { Notes } from "./Notes"
 import { useState } from "react";
 import { Empty } from "./Empty"
 import { StyledItemsTable } from "../../../../constats/styles"
+import { useEffect } from "react"
 
-const INIT_ITEM = ({ description: "", quantity: 0, price: 0.0 });
+const INIT_ITEM = ({
+  id: 1,
+  name: "",
+  quantity: 0,
+  price: 0,
+  amount: 0,
+  unit: "hours",
+});
+
 const TAX_OPTIONS = [
-  { title: "IVA 0%", value: 0 },
-  { title: "IVA 10%", value: 10 },
-  { title: "IVA 50%", value: 50 },
+  { title: "IVA 0%", value: "0" },
+  { title: "IVA 10%", value: "10" },
+  { title: "IVA 50%", value: "50" },
 
 ]
 
-export const ItemsTable = () => {
+export const ItemsTable = ({ data, onUpdateData }) => {
   const [items, setItems] = useState([]);
-  const [tax, setTax] = useState(TAX_OPTIONS[0])
 
-  const handleAddItem = () => setItems([...items, INIT_ITEM]);
-  const handleDeleteItem = (index) => setItems(items.filter((item, i) => i !== index));
+  const handleAddItem = () => {
+    const updatedData = [...items, INIT_ITEM]
+    setItems(updatedData);
+    onUpdateData("invoice_items_attributes", updatedData);
+  };
+  const handleDeleteItem = (index) => {
+    const updatedData = items.filter((item, i) => i !== index)
+    setItems(updatedData);
+    onUpdateData("invoice_items_attributes", updatedData)
+  };
 
   const handleUpdateItem = (index, field, value) => {
-    setItems(items.map((item, i) => (i === index) ? ({ ...item, [field]: value }) : item))
+    const updatedData = items.map((item, i) => (i === index) ? ({ ...item, [field]: value, amount: Number(item.quantity) * Number(item.price) }) : item);
+    setItems(updatedData);
+    onUpdateData("invoice_items_attributes", updatedData)
   }
 
-  const handleChangeTax = (value) => setTax(value);
+  const handleChangeTax = (opt) => { onUpdateData("tax", opt.value) };
+
+  useEffect(() => {
+    setItems(data.invoice_items_attributes)
+  }, [data])
 
   return (
     <StyledItemsTable>
@@ -41,12 +63,13 @@ export const ItemsTable = () => {
       >
         {
           items.length > 0 &&
-          items.map(({ description, quantity, price }, i) => (
+          items.map(({ name, quantity, price }, i) => (
             <ItemRow
               key={i}
-              description={description}
+              name={name}
               quantity={quantity}
               price={price}
+              amount={quantity * price}
               onChange={(field, value) => handleUpdateItem(i, field, value)}
               onDelete={() => handleDeleteItem(i)}
             />
@@ -58,7 +81,7 @@ export const ItemsTable = () => {
             <AddItem onAdd={handleAddItem} />
             <Footer
               items={items}
-              tax={tax}
+              tax={data.tax}
               onChangeTax={handleChangeTax}
               taxOptions={TAX_OPTIONS}
             />
@@ -72,7 +95,7 @@ export const ItemsTable = () => {
           <AddItem border onAdd={handleAddItem} />
         </>
       }
-      <Notes />
+      <Notes data={data} onUpdateData={onUpdateData} />
     </StyledItemsTable>
   )
 }

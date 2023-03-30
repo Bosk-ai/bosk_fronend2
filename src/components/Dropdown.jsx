@@ -9,7 +9,7 @@ export const Dropdown = ({ options, onSelectOption, open, footer, selected = "",
           <div
             key={i}
             onClick={() => onSelectOption(opt)}
-            className={`option ${((selected.length > 0) && (opt?.value === selected)) && "selected"}`}
+            className={`option ${((selected?.length > 0) && (opt?.value === selected)) && "selected"}`}
           >
             {opt.title}
             {

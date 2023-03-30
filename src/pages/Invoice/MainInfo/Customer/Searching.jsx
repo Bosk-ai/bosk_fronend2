@@ -6,43 +6,52 @@ import { Dropdown } from "../../../../components/Dropdown";
 import { CreateButton } from "./CreateButton";
 import { StyledCreateInvoiceSearching } from "../../../../constats/styles";
 
-const TEST_OPTIONS = [
-  { title: "Customer 1", value: "1" },
-  { title: "Customer 2", value: "2" },
-  { title: "Customer 3", value: "3" },
-  { title: "Customer 4", value: "4" },
-  { title: "Customer 5", value: "5" },
-  { title: "Customer 6", value: "6" },
-  { title: "Customer 7", value: "7" },
-  { title: "Customer 8", value: "8" },
-]
-
-export const Searching = () => {
+export const Searching = ({
+  customers = [],
+  selectedCustomer,
+  onUpdateData,
+  onRefreshCustomersData,
+  error
+}) => {
   const [focused, setFocused] = useState(false);
   const [modal, setModal] = useState(false);
+  const [search, setSearch] = useState("");
 
-  const handleCloseModal = () => setModal(modal);
+  const handleCloseModal = () => {
+    setModal(false);
+    onRefreshCustomersData();
+  };
+
+  const handleSelectCustomer = (opt) => {
+    onUpdateData("customer_id", opt.value);
+    setSearch("");
+  }
 
   return (
     <>
       <CreateCustomer open={modal} onClose={handleCloseModal} />
       <StyledCreateInvoiceSearching>
         <Input
-          value={""}
-          onChange={() => null}
+          value={search}
+          onChange={value => setSearch(value)}
           iconRight={searchIcon}
           placeholder="Type a customer name"
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
+          error={error}
         />
         <Dropdown
-          options={TEST_OPTIONS}
-          onSelectOption
+          options={customers.filter(({ title }) => search?.length === 0 ? true : title.toLowerCase().includes(search.toLowerCase()))}
+          onSelectOption={handleSelectCustomer}
           open={focused}
-          selected={{ title: "Customer 1", value: "1" }}
+          selected={selectedCustomer}
           showSelected
           footer={<CreateButton onClick={() => setModal(true)} />}
         />
+        <div className="selected-customer">
+          <div className="selected-customer-label">Customer: </div>
+          {customers.find(({ value }) => value === selectedCustomer)?.title ?? ""}
+        </div>
       </StyledCreateInvoiceSearching>
     </>
   )
