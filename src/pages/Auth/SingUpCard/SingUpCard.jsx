@@ -34,7 +34,7 @@ export const SingUpCard = () => {
             window.location.replace("/");
           }
         } else {
-          cogoToast.error("Error", { hideAfter: 3, position: "top-right", });
+          cogoToast.error("That email address is already in use", { hideAfter: 3, position: "top-right", });
         }
       })
   }

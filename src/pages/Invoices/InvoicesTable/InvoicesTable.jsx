@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Table } from "../../../components/Table/Table"
 import { InvoicesRow } from "./InvoicesRow";
+import { StyledInvoiceTable } from "../../../constats/styles";
 
 export const InvoicesTable = ({ invoices, onDelete }) => {
   const [sortBy, setSortBy] = useState(null);
@@ -13,7 +14,7 @@ export const InvoicesTable = ({ invoices, onDelete }) => {
   }
 
   return (
-    <>
+    <StyledInvoiceTable>
       <Table
         columns={[
           {
@@ -46,7 +47,7 @@ export const InvoicesTable = ({ invoices, onDelete }) => {
             active: sortBy === "updated_ats",
             arrow: sortDesc
           },
-          { title: "Actions" },
+          { title: "Actions", className: "actionsColumn" },
         ]}
       >
         {
@@ -64,7 +65,7 @@ export const InvoicesTable = ({ invoices, onDelete }) => {
           ))
         }
       </Table>
-    </>
+    </StyledInvoiceTable>
 
   )
 }

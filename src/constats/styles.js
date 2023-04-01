@@ -309,24 +309,21 @@ padding: 32px 16px;
 export const StyledTable = styled.table`
   width: 100%;
   border-spacing: 0;
-  font-family: 'Archivo', sans-serif !important;
+  font-family: 'Inter';
   position: relative;
   overflow: auto;
   border: 1px solid #EAECF0;
   border-radius: 12px;
   td {
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
-    color: #475467;
     text-align: center;
     padding: 25px 0;
     border-bottom: 1px solid #EAECF0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #475467;
     b {
       font-weight: 600;
-      font-size: 14px;
-      line-height: 20px;
-      color: #475467;
     }
     .large {
       font-size: 20px;
@@ -342,9 +339,9 @@ export const StyledTable = styled.table`
 
 export const StyledTableHeader = styled.tr`
   th {
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    line-height: 18px !important;
     color: #475467;
     padding: 13px 24px;
     text-align: center;
@@ -494,12 +491,29 @@ export const StyledButton = styled.button`
   }
 `
 export const StyledCheckbox = styled.div`
+  display: flex;
+  align-items: center;
   .label {
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
     color: #344054;
     margin-left: 8px;
+  }
+  .checkbox {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border: 1px solid #D0D5DD;
+    border-radius: 4px;
+    cursor: pointer;
+    img {
+      height: 90%;
+    }
+    ${({ checked }) => checked && "background: rgb(105, 65, 198); border: 1px solid rgb(105, 65, 198);"}
   }
 `
 export const StyledDropdown = styled.div`
@@ -1127,6 +1141,9 @@ export const StyledCustomersTable = styled.div`
   }
   .actions-coumn {
     width: 100px;
+    img {
+      display: none;
+    }
   }
   `
 
@@ -1215,6 +1232,11 @@ export const StyledInvoicesHeader = styled.div`
     height: 40px;
   }
 `
+export const StyledInvoiceTable = styled.div`
+  .actionsColumn {
+    width: 118px;
+  }
+`
 
 export const StyledInvoicesRow = styled.tr`
   .status {
@@ -1238,10 +1260,11 @@ export const StyledInvoicesRow = styled.tr`
   .actions-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
+    padding-right: 28px;
   }
   .actions-btn {
-    margin-left: 12px;
+    margin-left: 16px;
     cursor: pointer;
     position: relative;
     &:focus {
