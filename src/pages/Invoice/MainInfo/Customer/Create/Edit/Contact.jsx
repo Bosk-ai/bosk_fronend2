@@ -1,12 +1,12 @@
-import styled from "styled-components"
-import { StyledMainInfoContact } from "../../../../../../constats/styles"
-import { Input } from "../../../../components/Input/Input"
+import styled from "styled-components";
+import { StyledMainInfoContact } from "../../../../../../constats/styles";
+import { Input } from "../../../../components/Input/Input";
 
 const PHONE_OPTIONS = [
   { title: "ES", value: "1" },
   { title: "ES2", value: "2" },
   { title: "ES3", value: "3" },
-]
+];
 
 export const Contact = () => (
   <StyledMainInfoContact>
@@ -48,4 +48,4 @@ export const Contact = () => (
       placeholder="Fernandez"
     />
   </StyledMainInfoContact>
-)
+);

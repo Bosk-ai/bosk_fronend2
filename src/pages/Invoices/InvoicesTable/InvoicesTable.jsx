@@ -1,71 +1,76 @@
-import { useState } from "react"
-import { Table } from "../../../components/Table/Table"
+import { useState } from "react";
+import { Table } from "../../../components/Table/Table";
 import { InvoicesRow } from "./InvoicesRow";
 import { StyledInvoiceTable } from "../../../constats/styles";
 
-export const InvoicesTable = ({ invoices, onDelete }) => {
+export const InvoicesTable = ({ invoices, onDelete, onChangeStatus }) => {
   const [sortBy, setSortBy] = useState(null);
   const [sortDesc, setSortDesc] = useState(false);
 
   const handleSortTable = (column) => {
     const sortDescStatus = sortBy === column ? !sortDesc : false;
     setSortBy(column);
-    setSortDesc(sortDescStatus)
-  }
+    setSortDesc(sortDescStatus);
+  };
 
   return (
     <StyledInvoiceTable>
       <Table
         columns={[
           {
+            title: "Billing date",
+            onClick: () => handleSortTable("billing_date"),
+            active: sortBy === "billing_date",
+            arrow: sortDesc,
+          },
+          {
             title: "Status",
             onClick: () => handleSortTable("name"),
             active: sortBy === "name",
-            arrow: sortDesc
-          },
-          {
-            title: "Billing date",
-            onClick: () => handleSortTable("role_id"),
-            active: sortBy === "role_id",
-            arrow: sortDesc
+            arrow: sortDesc,
           },
           {
             title: "Number",
             onClick: () => handleSortTable("email"),
             active: sortBy === "email",
-            arrow: sortDesc
+            arrow: sortDesc,
           },
           {
             title: "Customer",
             onClick: () => handleSortTable("updated_at"),
             active: sortBy === "updated_at",
-            arrow: sortDesc
+            arrow: sortDesc,
           },
           {
             title: "Amount",
             onClick: () => handleSortTable("updated_ats"),
             active: sortBy === "updated_ats",
-            arrow: sortDesc
+            arrow: sortDesc,
           },
           { title: "Actions", className: "actionsColumn" },
         ]}
       >
-        {
-          invoices &&
-          invoices.map(({ due_date, number, purchaser_name, total, id }, i) => (
-            <InvoicesRow
-              key={i}
-              dueDate={due_date}
-              number={number}
-              purchaserName={purchaser_name}
-              total={total}
-              onDelete={() => onDelete(id)}
-              id={id}
-            />
-          ))
-        }
+        {invoices &&
+          invoices.map(
+            (
+              { due_date, number, status, total, id, customer, overdue_days },
+              i
+            ) => (
+              <InvoicesRow
+                key={i}
+                status={status.toLowerCase() ?? ""}
+                dueDate={due_date}
+                number={number}
+                total={total}
+                onDelete={() => onDelete(id)}
+                id={id}
+                customerName={customer?.client_name}
+                onChangeStatus={onChangeStatus}
+                overdue_days={overdue_days}
+              />
+            )
+          )}
       </Table>
     </StyledInvoiceTable>
-
-  )
-}
+  );
+};

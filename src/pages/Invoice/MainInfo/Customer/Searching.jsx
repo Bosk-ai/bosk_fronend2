@@ -10,8 +10,10 @@ export const Searching = ({
   customers = [],
   selectedCustomer,
   onUpdateData,
+  onEndSearch,
   onRefreshCustomersData,
-  error
+  error,
+  onGetAdvise,
 }) => {
   const [focused, setFocused] = useState(false);
   const [modal, setModal] = useState(false);
@@ -23,9 +25,11 @@ export const Searching = ({
   };
 
   const handleSelectCustomer = (opt) => {
+    onGetAdvise(opt.country);
     onUpdateData("customer_id", opt.value);
     setSearch("");
-  }
+    onEndSearch();
+  };
 
   return (
     <>
@@ -33,7 +37,7 @@ export const Searching = ({
       <StyledCreateInvoiceSearching>
         <Input
           value={search}
-          onChange={value => setSearch(value)}
+          onChange={(value) => setSearch(value)}
           iconRight={searchIcon}
           placeholder="Type a customer name"
           onFocus={() => setFocused(true)}
@@ -41,7 +45,11 @@ export const Searching = ({
           error={error}
         />
         <Dropdown
-          options={customers.filter(({ title }) => search?.length === 0 ? true : title.toLowerCase().includes(search.toLowerCase()))}
+          options={customers.filter(({ title }) =>
+            search?.length === 0
+              ? true
+              : title.toLowerCase().includes(search.toLowerCase())
+          )}
           onSelectOption={handleSelectCustomer}
           open={focused}
           selected={selectedCustomer}
@@ -50,9 +58,10 @@ export const Searching = ({
         />
         <div className="selected-customer">
           <div className="selected-customer-label">Customer: </div>
-          {customers.find(({ value }) => value === selectedCustomer)?.title ?? ""}
+          {customers.find(({ value }) => value === selectedCustomer)?.title ??
+            ""}
         </div>
       </StyledCreateInvoiceSearching>
     </>
-  )
-}
+  );
+};

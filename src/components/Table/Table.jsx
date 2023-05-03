@@ -9,5 +9,5 @@ export const Table = ({ columns, children, loading }) => {
       <Loading loading={loading} />
       {children}
     </StyledTable>
-  )
-}
+  );
+};

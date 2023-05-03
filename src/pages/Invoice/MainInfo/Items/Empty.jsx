@@ -1,6 +1,3 @@
-import { StyledEmptyItems } from "../../../../constats/styles"
+import { StyledEmptyItems } from "../../../../constats/styles";
 
-export const Empty = () => (
-  <StyledEmptyItems>No items</StyledEmptyItems>
-)
-
+export const Empty = () => <StyledEmptyItems>No items</StyledEmptyItems>;

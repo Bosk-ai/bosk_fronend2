@@ -11,12 +11,25 @@ export const Auth = ({ onAuth }) => {
   return (
     <StyledAuth>
       <Logo />
-      <Title title={pathname === "/sing-up" ? "Create an account" : "Log in to your account"} />
-      <Subtitle text={pathname === "/sing-up" ? "Start your 30-day free trial." : "Start your 30-day free trial."} />
-      {
-        pathname === "/sing-up" ? <SingUpCard onAuth={onAuth} /> : <LoginCard onAuth={onAuth} />
-      }
+      <Title
+        title={
+          pathname === "/sing-up"
+            ? "Create an account"
+            : "Log in to your account"
+        }
+      />
+      <Subtitle
+        text={
+          pathname === "/sing-up"
+            ? "Start your 30-day free trial."
+            : "Start your 30-day free trial."
+        }
+      />
+      {pathname === "/sing-up" ? (
+        <SingUpCard onAuth={onAuth} />
+      ) : (
+        <LoginCard onAuth={onAuth} />
+      )}
     </StyledAuth>
-  )
-}
-
+  );
+};

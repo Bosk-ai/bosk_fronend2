@@ -6,19 +6,26 @@ export const validateEmail = (email) => {
     );
 };
 
-export const handleCheckRequiredFileds = (data, requredFields, onShowErrors) => {
+export const handleCheckRequiredFileds = (
+  data,
+  requredFields,
+  onShowErrors
+) => {
   let emptyRequiredFields = [];
 
-  Object.entries(data).forEach(field => {
-    if (requredFields.includes(field[0]) && (!field[1] || field[1]?.length === 0)) {
-      emptyRequiredFields = [...emptyRequiredFields, field[0]]
+  Object.entries(data).forEach((field) => {
+    if (
+      requredFields.includes(field[0]) &&
+      (!field[1] || field[1]?.length === 0)
+    ) {
+      emptyRequiredFields = [...emptyRequiredFields, field[0]];
     }
-  })
+  });
 
   if (emptyRequiredFields.length > 0) {
     onShowErrors(emptyRequiredFields);
     return false;
   }
 
-  return true
-}
+  return true;
+};

@@ -1,6 +1,6 @@
-import { Input } from "../../../../components/Input/Input"
-import { StyledMainInfoInfo } from "../../../../constats/styles"
-import { formatInputDate } from "../../../../helpers/date"
+import { Input } from "../../../../components/Input/Input";
+import { StyledMainInfoInfo } from "../../../../constats/styles";
+import { formatInputDate } from "../../../../helpers/date";
 
 export const Info = ({ data, onUpdateData, errors }) => (
   <StyledMainInfoInfo>
@@ -31,14 +31,12 @@ export const Info = ({ data, onUpdateData, errors }) => (
     </div>
     <div className="info-item">
       <span className="info-item-label">Payment due</span>
-      {console.log(data?.due_date, formatInputDate(data?.due_date))}
       <Input
         value={data?.due_date ? formatInputDate(data?.due_date) : ""}
         onChange={(value) => onUpdateData("due_date", value)}
         type="date"
         error={errors.includes("due_date")}
-
       />
     </div>
   </StyledMainInfoInfo>
-)
+);

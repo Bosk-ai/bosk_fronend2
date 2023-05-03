@@ -5,4 +5,4 @@ export const Loading = ({ loading }) => (
   <StyledTableLoading loading={loading}>
     <Preloader />
   </StyledTableLoading>
-)
+);

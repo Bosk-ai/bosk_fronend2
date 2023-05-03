@@ -6,5 +6,4 @@ export const Info = ({ data }) => (
     <div>Tax number (NIE): {data?.provider_tax_id}</div>
     <div> {data?.provider_lines}</div>
   </StyledCreateInvoiceDetailsInfo>
-)
-
+);

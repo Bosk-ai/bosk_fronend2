@@ -16,5 +16,5 @@ export const Header = () => {
         className="create-invoice-btn"
       />
     </StyledInvoicesHeader>
-  )
-}
+  );
+};

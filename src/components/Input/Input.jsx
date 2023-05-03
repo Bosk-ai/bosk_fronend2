@@ -1,6 +1,6 @@
-import { Select } from "./Select"
+import { Select } from "./Select";
 import calendarIcon from "../../assets/images/calendar.svg";
-import { IMaskInput } from 'react-imask';
+import { IMaskInput } from "react-imask";
 import { StyledInput } from "../../constats/styles";
 
 export const Input = ({
@@ -22,7 +22,7 @@ export const Input = ({
   onBlur,
   mask,
   error,
-  noShowInputValue
+  noShowInputValue,
 }) => {
   return (
     <StyledInput
@@ -34,66 +34,64 @@ export const Input = ({
     >
       {label && <div className="label">{label}</div>}
       <div className="input-wrapper">
-        {
-          selectLeft &&
+        {selectLeft && (
           <Select
             options={selectLeft}
             value={selectValue}
             onSelect={onChangeSelect}
           />
-        }
+        )}
         {iconLeft && <img src={iconLeft} alt="" className="icon-left" />}
-        {
-          noShowInputValue
-            ? <input disabled />
-            : textarea
-              ? <textarea
-                value={value}
-                onChange={(e) => onChange(e.target.value)}
-                placeholder={placeholder}
-                disabled={disabled}
-                onFocus={onFocus}
-                onBlur={onBlur}
-              />
-              :
-              mask ? <IMaskInput
-                mask={mask}
-                radix="."
-                unmask={true} // true|false|'typed'
-                onAccept={(value) => onChange(value)}
-                // value={value}
-                // onChange={(e) => onChange(e.target.value)}
-                placeholder={placeholder}
-                type={type}
-                disabled={disabled}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                min="0"
-              />
-                : <input
-                  value={value}
-                  onChange={(e) => onChange(e.target.value)}
-                  placeholder={placeholder}
-                  type={type}
-                  disabled={disabled}
-                  onFocus={onFocus}
-                  onBlur={onBlur}
-                  min="0"
-                  autocomplete="off"
-                />
-        }
+        {noShowInputValue ? (
+          <input disabled />
+        ) : textarea ? (
+          <textarea
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            placeholder={placeholder}
+            disabled={disabled}
+            onFocus={onFocus}
+            onBlur={onBlur}
+          />
+        ) : mask ? (
+          <IMaskInput
+            mask={mask}
+            radix="."
+            unmask={true} // true|false|'typed'
+            onAccept={(value) => onChange(value)}
+            // value={value}
+            // onChange={(e) => onChange(e.target.value)}
+            placeholder={placeholder}
+            type={type}
+            disabled={disabled}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            min="0"
+          />
+        ) : (
+          <input
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            placeholder={placeholder}
+            type={type}
+            disabled={disabled}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            min="0"
+            autocomplete="off"
+          />
+        )}
         {iconRight && <img src={iconRight} alt="" className="icon-right" />}
-        {
-          selectRight &&
+        {selectRight && (
           <Select
             options={selectRight}
             value={selectValue}
             onSelect={onChangeSelect}
             right
           />
-        }
+        )}
       </div>
       {error && <div className="error-message">{error}</div>}
     </StyledInput>
-  )
-}
+  );
+};

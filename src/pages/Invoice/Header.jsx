@@ -1,10 +1,26 @@
 import { Button } from "../../components/Button";
 import { Title } from "../../components/Title";
 import { StyledCreateInvoiceHeader } from "../../constats/styles";
+import { BackButton } from "./BackButton";
+import { InvoiceStatusCard } from "../../components/InvoiceStatusCard/InvoiceStatusCard";
 
-export const Header = ({ onSave, loading }) => (
+export const Header = ({
+  invoiceId,
+  name,
+  onSave,
+  loading,
+  status,
+  onChangeStatus,
+}) => (
   <StyledCreateInvoiceHeader>
-    <Title title="New invoice" />
+    <div className="group">
+      <BackButton />
+      <Title
+        title={invoiceId ? name : "New invoice"}
+        className="invoice-header"
+      />
+      <InvoiceStatusCard status={status} onChangeStatus={onChangeStatus} />
+    </div>
     <div className="btns-wrapper">
       <Button
         onClick={() => null}
@@ -21,4 +37,4 @@ export const Header = ({ onSave, loading }) => (
       />
     </div>
   </StyledCreateInvoiceHeader>
-)
+);

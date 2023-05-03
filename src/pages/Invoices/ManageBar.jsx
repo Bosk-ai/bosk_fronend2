@@ -1,5 +1,5 @@
 import { StyledInvoicesManageBar } from "../../constats/styles";
-import { Tabs } from "../../components/Tabs/Tabs"
+import { Tabs } from "../../components/Tabs/Tabs";
 // import { Input } from "../../components/Input/Input"
 // import searchIcon from "../../assets/images/search-icon.svg";
 // import filterIcon from "../../assets/images/filter-lines.svg";
@@ -8,11 +8,7 @@ import { Tabs } from "../../components/Tabs/Tabs"
 export const ManageBar = ({ tabs, activeTab, onChangeTab }) => {
   return (
     <StyledInvoicesManageBar>
-      <Tabs
-        tabs={tabs}
-        activeTab={activeTab}
-        onChangeTab={onChangeTab}
-      />
+      <Tabs tabs={tabs} activeTab={activeTab} onChangeTab={onChangeTab} />
       {/* <div className="filters-btns">
         <Input
           value={""}
@@ -29,5 +25,5 @@ export const ManageBar = ({ tabs, activeTab, onChangeTab }) => {
         />
       </div> */}
     </StyledInvoicesManageBar>
-  )
-}
+  );
+};

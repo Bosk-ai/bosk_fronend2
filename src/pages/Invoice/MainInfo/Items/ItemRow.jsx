@@ -1,8 +1,15 @@
-import { Input } from "../../../../components/Input/Input"
+import { Input } from "../../../../components/Input/Input";
 import deleteIcon from "../../../../assets/images/delete.svg";
 import { StyledItemRow } from "../../../../constats/styles";
 
-export const ItemRow = ({ name, quantity, price, amount, onChange, onDelete }) => (
+export const ItemRow = ({
+  name,
+  quantity,
+  price,
+  amount,
+  onChange,
+  onDelete,
+}) => (
   <StyledItemRow>
     <td>
       <Input
@@ -31,12 +38,7 @@ export const ItemRow = ({ name, quantity, price, amount, onChange, onDelete }) =
       <b>€${amount}</b>
     </td>
     <td>
-      <img
-        src={deleteIcon}
-        alt=""
-        className="delete-btn"
-        onClick={onDelete}
-      />
+      <img src={deleteIcon} alt="" className="delete-btn" onClick={onDelete} />
     </td>
   </StyledItemRow>
-)
+);

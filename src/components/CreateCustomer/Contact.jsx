@@ -1,13 +1,26 @@
 import { useState } from "react";
 import { StyledContact } from "../../constats/styles";
-import { Input } from "../Input/Input"
+import { Input } from "../Input/Input";
 
-const phonesData = require('countries-phone-masks')
+const phonesData = require("countries-phone-masks");
 
 export const Contact = ({ data, onUpdateData, errors }) => {
-  const [phoneMask, setPhoneMask] = useState({ ...phonesData[0], mask: phonesData[0]?.mask?.split("").map(symbol => symbol === "#" ? "0" : symbol).join("") });
+  const [phoneMask, setPhoneMask] = useState({
+    ...phonesData[0],
+    mask: phonesData[0]?.mask
+      ?.split("")
+      .map((symbol) => (symbol === "#" ? "0" : symbol))
+      .join(""),
+  });
 
-  const handleSelectPhoneMask = (selectedOption) => setPhoneMask({ ...selectedOption, mask: selectedOption?.mask?.split("").map(symbol => symbol === "#" ? "0" : symbol).join("") });
+  const handleSelectPhoneMask = (selectedOption) =>
+    setPhoneMask({
+      ...selectedOption,
+      mask: selectedOption?.mask
+        ?.split("")
+        .map((symbol) => (symbol === "#" ? "0" : symbol))
+        .join(""),
+    });
 
   return (
     <StyledContact>
@@ -25,6 +38,7 @@ export const Contact = ({ data, onUpdateData, errors }) => {
         label="Email"
         placeholder="name@domain.com"
         className="input"
+        error={errors.includes("email")}
       />
       <Input
         value={data.phone}
@@ -32,10 +46,15 @@ export const Contact = ({ data, onUpdateData, errors }) => {
         label="Phone"
         placeholder={`${phoneMask.code}${phoneMask?.mask}`}
         className="input"
-        selectLeft={phonesData.map((countryPhone) => ({ title: countryPhone.iso, value: countryPhone.iso, ...countryPhone }))}
+        selectLeft={phonesData.map((countryPhone) => ({
+          title: countryPhone.iso,
+          value: countryPhone.iso,
+          ...countryPhone,
+        }))}
         selectValue={phoneMask?.iso}
         onChangeSelect={handleSelectPhoneMask}
         mask={`${phoneMask.code}${phoneMask?.mask}`}
+        error={errors.includes("phone")}
       />
       <Input
         value={data.first_name}
@@ -43,13 +62,15 @@ export const Contact = ({ data, onUpdateData, errors }) => {
         label="First name"
         placeholder="Olivia"
         className="input"
+        error={errors.includes("first_name")}
       />
       <Input
         value={data.last_name}
         onChange={(value) => onUpdateData("last_name", value)}
         label="Last name"
         placeholder="Fernandez"
+        error={errors.includes("last_name")}
       />
     </StyledContact>
-  )
-}
+  );
+};

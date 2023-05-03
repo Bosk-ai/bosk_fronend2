@@ -14,5 +14,4 @@ export const AddItem = ({ onAdd, border }) => (
     <td></td>
     <td></td>
   </StyledAddItem>
-)
-
+);

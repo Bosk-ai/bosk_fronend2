@@ -18,5 +18,5 @@ export const Footer = ({ onSave, loading }) => {
         disabled={loading}
       />
     </StyledCreateInvoiceFooter>
-  )
-}
+  );
+};

@@ -1,5 +1,5 @@
-import { StyledTitle } from "../constats/styles"
+import { StyledTitle } from "../constats/styles";
 
-export const Title = ({ title }) => (
-  <StyledTitle>{title}</StyledTitle>
-)
+export const Title = ({ title, className }) => (
+  <StyledTitle className={className}>{title}</StyledTitle>
+);

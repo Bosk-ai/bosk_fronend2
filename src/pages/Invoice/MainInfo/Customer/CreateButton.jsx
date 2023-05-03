@@ -6,4 +6,4 @@ export const CreateButton = ({ onClick }) => (
     <img src={plusIcon} alt="" />
     Create new customer
   </StyledCreateCustomerButton>
-)
+);

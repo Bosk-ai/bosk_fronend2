@@ -19,25 +19,32 @@ export const Edit = ({ data, onUpdateData }) => {
     setName(profile?.name ?? "");
     setTaxNumber(profile?.tax_id ?? "");
     setAddress(profile?.address ?? "");
-  }
+  };
 
   useEffect(() => {
-    handleSetInitData()
-  }, [profile])
+    handleSetInitData();
+  }, [profile]);
 
   const handleSave = () => {
     setLoading(true);
-    updateProfile({ user: { name, tax_id: taxNumber, address } })
-      .then(resp => {
+    updateProfile({ user: { name, tax_id: taxNumber, address } }).then(
+      (resp) => {
         setLoading(false);
         if (resp?.status === 200) {
           handleRefetchUser();
-          cogoToast.success("Profile has been updated successfully", { hideAfter: 3, position: "top-right", });
+          cogoToast.success("Profile has been updated successfully", {
+            hideAfter: 3,
+            position: "top-right",
+          });
         } else {
-          cogoToast.error("Error, profile has not been updated", { hideAfter: 3, position: "top-right", });
+          cogoToast.error("Error, profile has not been updated", {
+            hideAfter: 3,
+            position: "top-right",
+          });
         }
-      })
-  }
+      }
+    );
+  };
 
   return (
     <Modal
@@ -50,24 +57,23 @@ export const Edit = ({ data, onUpdateData }) => {
       <StyledCreateInvoiceDetailEdit>
         <Input
           value={name}
-          onChange={value => setName(value)}
+          onChange={(value) => setName(value)}
           label="Name"
           className="input"
         />
         <Input
           value={taxNumber}
-          onChange={value => setTaxNumber(value)}
+          onChange={(value) => setTaxNumber(value)}
           label="Tax number (NIE)"
           className="input"
         />
         <Input
           value={address}
-          onChange={value => setAddress(value)}
+          onChange={(value) => setAddress(value)}
           label="Address"
           className="input"
         />
       </StyledCreateInvoiceDetailEdit>
     </Modal>
-  )
-}
-
+  );
+};

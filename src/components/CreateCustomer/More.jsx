@@ -1,7 +1,7 @@
-import { Input } from "../Input/Input"
-import { StyledCreateCustomerMore } from "../../constats/styles"
+import { Input } from "../Input/Input";
+import { StyledCreateCustomerMore } from "../../constats/styles";
 
-export const More = ({ data, onUpdateData }) => (
+export const More = ({ data, onUpdateData, errors }) => (
   <StyledCreateCustomerMore>
     <Input
       value={data.website}
@@ -9,6 +9,7 @@ export const More = ({ data, onUpdateData }) => (
       label="Website"
       placeholder="Enter a location"
       className="input"
+      error={errors.includes("website")}
     />
     <Input
       value={data.notes}
@@ -17,7 +18,7 @@ export const More = ({ data, onUpdateData }) => (
       placeholder="Will be not visible for your customer"
       className="input"
       textarea
+      error={errors.includes("notes")}
     />
   </StyledCreateCustomerMore>
-)
-
+);

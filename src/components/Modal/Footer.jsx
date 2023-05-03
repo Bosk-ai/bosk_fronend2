@@ -1,5 +1,5 @@
-import { StyledModalFooter } from "../../constats/styles"
-import { Button } from "../Button"
+import { StyledModalFooter } from "../../constats/styles";
+import { Button } from "../Button";
 
 export const Footer = ({ onClose, onSave, loading }) => (
   <StyledModalFooter>
@@ -17,4 +17,4 @@ export const Footer = ({ onClose, onSave, loading }) => (
       disabled={loading}
     />
   </StyledModalFooter>
-)
+);

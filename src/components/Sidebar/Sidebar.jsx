@@ -1,7 +1,7 @@
-import { StyledSidebar } from "../../constats/styles"
-import { Logo } from "./Logo"
-import { NavLinks } from "./NavLinks"
-import { Profile } from "./Profile/Profile"
+import { StyledSidebar } from "../../constats/styles";
+import { Logo } from "./Logo";
+import { NavLinks } from "./NavLinks";
+import { Profile } from "./Profile/Profile";
 
 export const Sidebar = ({ onLogout }) => {
   return (
@@ -12,5 +12,5 @@ export const Sidebar = ({ onLogout }) => {
       </div>
       <Profile onLogout={onLogout} />
     </StyledSidebar>
-  )
-}
+  );
+};

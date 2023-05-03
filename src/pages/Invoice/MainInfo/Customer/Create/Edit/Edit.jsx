@@ -12,8 +12,8 @@ const TABS = [
   { title: "Contact", value: "Contact" },
   { title: "Billing", value: "Billing" },
   { title: "Shipping", value: "Shipping" },
-  { title: "More", value: "More" }
-]
+  { title: "More", value: "More" },
+];
 
 export const Edit = () => {
   const [activeTab, setActiveTab] = useState(TABS[0]);
@@ -21,10 +21,7 @@ export const Edit = () => {
   const handleChangeTab = (tab) => setActiveTab(tab);
 
   return (
-    <Modal
-      title="Edit business details"
-      button={<EditButton />}
-    >
+    <Modal title="Edit business details" button={<EditButton />}>
       <StyledEditBusinessDetails>
         <Tabs
           tabs={TABS}
@@ -32,16 +29,16 @@ export const Edit = () => {
           onChangeTab={handleChangeTab}
           className="tabs"
         />
-        {
-          activeTab.value === "Contact" ? <Contact />
-            : activeTab.value === "Billing" ? <Bilings />
-              : activeTab.value === "Shipping" ? <Shipping />
-                : activeTab.value === "More" ? <More />
-                  : null
-
-        }
+        {activeTab.value === "Contact" ? (
+          <Contact />
+        ) : activeTab.value === "Billing" ? (
+          <Bilings />
+        ) : activeTab.value === "Shipping" ? (
+          <Shipping />
+        ) : activeTab.value === "More" ? (
+          <More />
+        ) : null}
       </StyledEditBusinessDetails>
     </Modal>
-  )
-}
-
+  );
+};

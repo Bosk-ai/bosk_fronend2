@@ -1,5 +1,5 @@
-import { StyledCreateInvoiceCustomerMore } from "../../../../../../constats/styles"
-import { Input } from "../../../../components/Input/Input"
+import { StyledCreateInvoiceCustomerMore } from "../../../../../../constats/styles";
+import { Input } from "../../../../components/Input/Input";
 
 export const More = () => (
   <StyledCreateInvoiceCustomerMore>
@@ -19,5 +19,4 @@ export const More = () => (
       textarea
     />
   </StyledCreateInvoiceCustomerMore>
-)
-
+);

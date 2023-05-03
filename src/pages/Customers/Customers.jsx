@@ -1,11 +1,11 @@
-import { useEffect, useRef } from "react"
-import { useState } from "react"
-import { CreateCustomer } from "../../components/CreateCustomer/CreateCustomer"
-import useGetCustomers from "../../hooks/customers/useGetCustomers"
-import useGetCustomersCount from "../../hooks/customers/useGetCustomersCount"
-import { CustomersTable } from "./CustomersTable/CustomersTable"
-import { Header } from "./Header"
-import { ManageBar } from "./ManageBar"
+import { useEffect, useRef } from "react";
+import { useState } from "react";
+import { CreateCustomer } from "../../components/CreateCustomer/CreateCustomer";
+import useGetCustomers from "../../hooks/customers/useGetCustomers";
+import useGetCustomersCount from "../../hooks/customers/useGetCustomersCount";
+import { CustomersTable } from "./CustomersTable/CustomersTable";
+import { Header } from "./Header";
+import { ManageBar } from "./ManageBar";
 
 export const Customers = () => {
   const [open, setOpen] = useState();
@@ -19,10 +19,10 @@ export const Customers = () => {
   const loading = useRef(false);
 
   useEffect(() => {
-    getCustomers().then(resp => setCustomers(resp.data))
-    getCustomersCount().then(resp => setCustomersCount(resp.data))
-    // eslint-disable-next-line 
-  }, [])
+    getCustomers().then((resp) => setCustomers(resp.data));
+    getCustomersCount().then((resp) => setCustomersCount(resp.data));
+    // eslint-disable-next-line
+  }, []);
 
   const handleCloseModal = () => {
     setOpen(false);
@@ -32,40 +32,49 @@ export const Customers = () => {
 
   const handleEditCustomer = (customer) => {
     setSelectedCustomer(customer);
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   const handleAddCustomer = (customer) => {
     setCustomers([...customers, customer]);
-    setCustomersCount(customersCount + 1)
+    setCustomersCount(customersCount + 1);
   };
   const handleDeleteCustomer = (customerId) => {
-    setCustomers(customers.filter(customer => customer.id !== customerId));
-    setCustomersCount(customersCount - 1)
-  }
-  const handleUpdateCustomer = (updatedCustomer) => setCustomers(customers.map(customer => (customer.id === updatedCustomer.id) ? updatedCustomer : customer));
+    setCustomers(customers.filter((customer) => customer.id !== customerId));
+    setCustomersCount(customersCount - 1);
+  };
+  const handleUpdateCustomer = (updatedCustomer) =>
+    setCustomers(
+      customers.map((customer) =>
+        customer.id === updatedCustomer.id ? updatedCustomer : customer
+      )
+    );
 
   const handleLoadMoreCustomers = (e) => {
     const scrolledHeight = e.target.scrollTop + e.target.clientHeight;
     const scrollHeight = e.target.scrollHeight;
-    if (!loading.current && !isLastPage && ((scrolledHeight + 50) > scrollHeight)) {
-      loading.current = true
-      getCustomers(1 + page).then(resp => {
+    if (!loading.current && !isLastPage && scrolledHeight + 50 > scrollHeight) {
+      loading.current = true;
+      getCustomers(1 + page).then((resp) => {
         const updatedCustomers = [...customers, ...resp.data];
-        console.log(updatedCustomers)
         setCustomers(updatedCustomers);
-        setIsLastPage(resp.data?.length === 0)
+        setIsLastPage(resp.data?.length === 0);
         setPage(1 + page);
-        loading.current = false
+        loading.current = false;
       });
     }
-  }
+  };
 
   useEffect(() => {
-    document.querySelector(".pages").addEventListener("scroll", handleLoadMoreCustomers);
-    return () => document.querySelector(".pages").removeEventListener("scroll", handleLoadMoreCustomers);
-    // eslint-disable-next-line 
-  }, [customers, loading])
+    document
+      .querySelector(".pages")
+      .addEventListener("scroll", handleLoadMoreCustomers);
+    return () =>
+      document
+        .querySelector(".pages")
+        .removeEventListener("scroll", handleLoadMoreCustomers);
+    // eslint-disable-next-line
+  }, [customers, loading]);
 
   return (
     <div>
@@ -84,5 +93,5 @@ export const Customers = () => {
         onDeleteCustomer={handleDeleteCustomer}
       />
     </div>
-  )
-}
+  );
+};

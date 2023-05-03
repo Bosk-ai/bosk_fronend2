@@ -1,18 +1,18 @@
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #F9FAFB;
+  background: #f9fafb;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 html {
-  background: #F9FAFB;
+  background: #f9fafb;
 }
 
 * {
@@ -25,7 +25,7 @@ button {
   outline: none;
   background: none;
   border: none;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 a {
@@ -33,12 +33,12 @@ a {
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  color: #6941C6;
+  color: #6941c6;
 }
 
 button {
   cursor: pointer;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 button:disabled {
@@ -64,6 +64,6 @@ button:disabled {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #EAECF0;
+  background: #eaecf0;
   border-radius: 10px;
 }

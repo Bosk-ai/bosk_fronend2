@@ -1,4 +1,4 @@
-import { Avatar } from "./Avatar"
+import { Avatar } from "./Avatar";
 import avatarImg from "../../../assets/images/avatar.jfif";
 import { Info } from "./Info";
 import { Logout } from "./Logout";
@@ -14,5 +14,5 @@ export const Profile = ({ onLogout }) => {
       <Info name={profile?.name ?? ""} role="" />
       <Logout onLogout={onLogout} />
     </StyledProfile>
-  )
-}
+  );
+};

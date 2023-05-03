@@ -1,12 +1,13 @@
-import { useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import './App.css';
-import { Sidebar } from './components/Sidebar/Sidebar';
-import { StyledApp } from './constats/styles';
-import { Auth } from './pages/Auth/Auth';
-import { Customers } from './pages/Customers/Customers';
-import { Invoice } from './pages/Invoice/Invoice';
-import { Invoices } from './pages/Invoices/Invoices';
+import { useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import "./App.css";
+import { Sidebar } from "./components/Sidebar/Sidebar";
+import { StyledApp } from "./constats/styles";
+import { Auth } from "./pages/Auth/Auth";
+import { Customers } from "./pages/Customers/Customers";
+import { Invoice } from "./pages/Invoice/Invoice";
+import { Invoices } from "./pages/Invoices/Invoices";
+import { Dashboard } from "./pages/Dashboard/Dashboard";
 
 export const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -14,26 +15,25 @@ export const App = () => {
 
   const handleLogin = () => {
     setToken(true);
-    localStorage.setItem("token", "truedsd")
-    navigate("/")
-  }
+    localStorage.setItem("token", "truedsd");
+    navigate("/");
+  };
 
   const handleLogout = () => {
     setToken(false);
-    navigate("/sing-in")
-    localStorage.removeItem("token")
-
-  }
+    navigate("/sing-in");
+    localStorage.removeItem("token");
+  };
 
   if (!token) {
-    return <Auth onAuth={handleLogin} />
+    return <Auth onAuth={handleLogin} />;
   }
   return (
     <StyledApp>
       <Sidebar onLogout={handleLogout} />
-      <div className='pages'>
+      <div className="pages">
         <Routes>
-          <Route path="/" element={<></>} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/invoices" element={<Invoices />} />
           <Route path="/create-invoice" element={<Invoice />} />
           <Route path="/invoice/:invoiceId" element={<Invoice />} />
@@ -42,5 +42,4 @@ export const App = () => {
       </div>
     </StyledApp>
   );
-}
-
+};

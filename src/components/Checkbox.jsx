@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { StyledCheckbox } from "../constats/styles"
+import { useState } from "react";
+import { StyledCheckbox } from "../constats/styles";
 import checkedIcon from "../assets/images/checked.svg";
 
 export const Checkbox = ({ label, className }) => {
@@ -12,5 +12,5 @@ export const Checkbox = ({ label, className }) => {
       </div>
       <span className="label">{label}</span>
     </StyledCheckbox>
-  )
-}
+  );
+};

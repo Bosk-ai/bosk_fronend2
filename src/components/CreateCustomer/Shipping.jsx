@@ -1,21 +1,34 @@
-import { useState } from "react"
-import { StyledShipping } from "../../constats/styles"
-import { Checkbox } from "../Checkbox"
-import { Input } from "../Input/Input"
-import { Select } from "../Select/Select"
+import { useState } from "react";
+import { StyledShipping } from "../../constats/styles";
+import { Checkbox } from "../Checkbox";
+import { Input } from "../Input/Input";
+import { Select } from "../Select/Select";
 
 const TEST_OPTIONS = [
   { title: "Test 1", value: "1" },
   { title: "Test 2", value: "2" },
-]
+];
 
-const phonesData = require('countries-phone-masks')
+const phonesData = require("countries-phone-masks");
 
 export const Shipping = () => {
-  const [phoneMask, setPhoneMask] = useState({ ...phonesData[0], mask: phonesData[0]?.mask?.split("").map(symbol => symbol === "#" ? "0" : symbol).join("") });
+  const [phoneMask, setPhoneMask] = useState({
+    ...phonesData[0],
+    mask: phonesData[0]?.mask
+      ?.split("")
+      .map((symbol) => (symbol === "#" ? "0" : symbol))
+      .join(""),
+  });
   const [phone, setPhone] = useState("");
 
-  const handleSelectPhoneMask = (selectedOption) => setPhoneMask({ ...selectedOption, mask: selectedOption?.mask?.split("").map(symbol => symbol === "#" ? "0" : symbol).join("") });
+  const handleSelectPhoneMask = (selectedOption) =>
+    setPhoneMask({
+      ...selectedOption,
+      mask: selectedOption?.mask
+        ?.split("")
+        .map((symbol) => (symbol === "#" ? "0" : symbol))
+        .join(""),
+    });
 
   return (
     <StyledShipping>
@@ -33,7 +46,10 @@ export const Shipping = () => {
         label="Phone"
         placeholder={`${phoneMask.code}${phoneMask?.mask}`}
         className="input"
-        selectLeft={phonesData.map((countryPhone) => ({ title: countryPhone.iso, ...countryPhone }))}
+        selectLeft={phonesData.map((countryPhone) => ({
+          title: countryPhone.iso,
+          ...countryPhone,
+        }))}
         selectValue={phoneMask?.iso}
         onChangeSelect={handleSelectPhoneMask}
         mask={`${phoneMask.code}${phoneMask?.mask}`}
@@ -53,12 +69,7 @@ export const Shipping = () => {
         placeholder="Enter a location"
         className="input"
       />
-      <Input
-        value={""}
-        onChange={() => null}
-        label="City"
-        className="input"
-      />
+      <Input value={""} onChange={() => null} label="City" className="input" />
       <Input
         value={""}
         onChange={() => null}
@@ -82,5 +93,5 @@ export const Shipping = () => {
         className="input"
       />
     </StyledShipping>
-  )
-}
+  );
+};

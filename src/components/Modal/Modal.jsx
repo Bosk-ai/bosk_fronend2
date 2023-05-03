@@ -1,10 +1,18 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { StyledModal } from "../../constats/styles";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
-export const Modal = ({ button, title, children, openModal, onCloseModal, onSave, loading }) => {
+export const Modal = ({
+  button,
+  title,
+  children,
+  openModal,
+  onCloseModal,
+  onSave,
+  loading,
+}) => {
   const [open, setOpen] = useState(false);
 
   const handleOpenModal = () => setOpen(true);
@@ -14,22 +22,23 @@ export const Modal = ({ button, title, children, openModal, onCloseModal, onSave
   };
 
   useEffect(() => {
-    setOpen(openModal)
-  }, [openModal])
+    setOpen(openModal);
+  }, [openModal]);
 
   return (
     <>
       <StyledModal open={open}>
         <div className="wrapper">
-          <Header
-            title={title}
-            onClose={handleCloseModal}
-          />
+          <Header title={title} onClose={handleCloseModal} />
           {children}
-          <Footer onClose={handleCloseModal} onSave={onSave} loading={loading} />
+          <Footer
+            onClose={handleCloseModal}
+            onSave={onSave}
+            loading={loading}
+          />
         </div>
       </StyledModal>
       {button ? React.cloneElement(button, { onClick: handleOpenModal }) : null}
     </>
-  )
-}
+  );
+};

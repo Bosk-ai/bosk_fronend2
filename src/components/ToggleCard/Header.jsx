@@ -11,4 +11,4 @@ export const Header = ({ title, open, onToggleOpen, innerRef }) => (
     <span>{title}</span>
     <img src={arrow} alt="" />
   </StyledToggleCardHeader>
-)
+);

@@ -5,4 +5,4 @@ export const Preloader = ({ className }) => (
   <StyledTablePreloader className={className}>
     <img src={spinnerIcon} alt="" />
   </StyledTablePreloader>
-)
+);

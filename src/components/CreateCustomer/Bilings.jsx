@@ -7,12 +7,12 @@ import { Select } from "../Select/Select";
 const CURRENCY_OPTIONS = [
   { title: "EUR", value: "EUR" },
   { title: "USD", value: "USD" },
-]
+];
 
 const TEST_OPTIONS = [
   { title: "Test 1", value: "1" },
   { title: "Test 2", value: "2" },
-]
+];
 
 export const Bilings = ({ data, onUpdateData, errors }) => {
   const { countries } = useCountries();
@@ -45,6 +45,7 @@ export const Bilings = ({ data, onUpdateData, errors }) => {
         label="Address line 2"
         placeholder="Enter a location"
         className="input"
+        error={errors.includes("address_2")}
       />
       <Input
         value={data.city}
@@ -65,7 +66,14 @@ export const Bilings = ({ data, onUpdateData, errors }) => {
         onChange={(opt) => onUpdateData("country", opt.value)}
         label="Country*"
         placeholder="Select a country"
-        options={countries ? countries.map(country => ({ title: country[1], value: country[0] })) : []}
+        options={
+          countries
+            ? countries.map((country) => ({
+                title: country[1],
+                value: country[0],
+              }))
+            : []
+        }
         className="input"
         error={errors.includes("country")}
       />
@@ -73,7 +81,8 @@ export const Bilings = ({ data, onUpdateData, errors }) => {
         value={data.province}
         onChange={(value) => onUpdateData("province", value)}
         label="Province/State"
+        error={errors.includes("province")}
       />
     </StyledBilings>
-  )
-}
+  );
+};

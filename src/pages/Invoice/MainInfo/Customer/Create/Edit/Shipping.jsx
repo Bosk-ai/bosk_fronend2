@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { Input } from "../../../../components/Input/Input"
+import styled from "styled-components";
+import { Input } from "../../../../components/Input/Input";
 import euroIcon from "../../../../assets/images/euro.svg";
 import { Select } from "../../../../components/Select/Select";
 import { Checkbox } from "../../../../components/Checkbox";
@@ -9,13 +9,12 @@ const PHONE_OPTIONS = [
   { title: "ES", value: "1" },
   { title: "ES2", value: "2" },
   { title: "ES3", value: "3" },
-]
-
+];
 
 const TEST_OPTIONS = [
   { title: "Test 1", value: "1" },
   { title: "Test 2", value: "2" },
-]
+];
 
 export const Shipping = () => (
   <StyledShipping>
@@ -51,12 +50,7 @@ export const Shipping = () => (
       placeholder="Enter a location"
       className="input"
     />
-    <Input
-      value={""}
-      onChange={() => null}
-      label="City"
-      className="input"
-    />
+    <Input value={""} onChange={() => null} label="City" className="input" />
     <Input
       value={""}
       onChange={() => null}
@@ -80,4 +74,4 @@ export const Shipping = () => (
       className="input"
     />
   </StyledShipping>
-)
+);

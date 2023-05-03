@@ -6,5 +6,4 @@ export const EditButton = ({ onClick }) => (
     <img src={editIcon} alt="" />
     Edit details
   </StyledCreateInvoiceEditDetailsEditButton>
-)
-
+);

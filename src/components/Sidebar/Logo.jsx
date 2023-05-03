@@ -6,4 +6,4 @@ export const Logo = () => (
     <img src={logo} alt="" />
     <span>Bosk</span>
   </StyledSidebarLogo>
-)
+);

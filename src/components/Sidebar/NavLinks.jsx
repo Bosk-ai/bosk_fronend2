@@ -11,21 +11,19 @@ export const NavLinks = () => {
     { title: "Dashboard", link: "/", icon: dashboardIcon },
     { title: "Invoices", link: "/invoices", icon: invoicesIcon },
     { title: "Customers", link: "/customers", icon: customersIcon },
-  ]
+  ];
 
   return (
     <div>
-      {
-        LINKS.map(({ title, link, icon }, i) => (
-          <NavLink
-            key={i}
-            link={link}
-            active={pathname === link}
-            icon={icon}
-            title={title}
-          />
-        ))
-      }
+      {LINKS.map(({ title, link, icon }, i) => (
+        <NavLink
+          key={i}
+          link={link}
+          active={pathname === link}
+          icon={icon}
+          title={title}
+        />
+      ))}
     </div>
-  )
-}
+  );
+};

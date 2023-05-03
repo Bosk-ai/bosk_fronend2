@@ -1,4 +1,4 @@
-import { StyledButton } from "../constats/styles"
+import { StyledButton } from "../constats/styles";
 
 export const Button = ({
   onClick,
@@ -6,7 +6,7 @@ export const Button = ({
   disabled,
   color = "default",
   className,
-  icon
+  icon,
 }) => (
   <StyledButton
     onClick={onClick}
@@ -17,4 +17,4 @@ export const Button = ({
     {icon && <img src={icon} alt="" className="icon" />}
     {title}
   </StyledButton>
-)
+);

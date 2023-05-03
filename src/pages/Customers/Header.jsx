@@ -12,5 +12,4 @@ export const Header = ({ onAddCustomer }) => (
       className="add-customer-btn"
     />
   </StyledCustomersHeader>
-)
-
+);

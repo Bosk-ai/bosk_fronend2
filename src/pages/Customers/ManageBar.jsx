@@ -1,5 +1,5 @@
 import { StyledCustomersManageBar } from "../../constats/styles";
-import { Input } from "../../components/Input/Input"
+import { Input } from "../../components/Input/Input";
 import searchIcon from "../../assets/images/search-icon.svg";
 
 export const ManageBar = ({ customersCount }) => {
@@ -14,5 +14,5 @@ export const ManageBar = ({ customersCount }) => {
         iconLeft={searchIcon}
       /> */}
     </StyledCustomersManageBar>
-  )
-}
+  );
+};

@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { Input } from "../../../../components/Input/Input"
+import styled from "styled-components";
+import { Input } from "../../../../components/Input/Input";
 import euroIcon from "../../../../assets/images/euro.svg";
 import { Select } from "../../../../components/Select/Select";
 import { StyledMainInfoBilings } from "../../../../../../constats/styles";
@@ -7,12 +7,12 @@ import { StyledMainInfoBilings } from "../../../../../../constats/styles";
 const CURRENCY_OPTIONS = [
   { title: "EUR", value: "1" },
   { title: "USD", value: "2" },
-]
+];
 
 const TEST_OPTIONS = [
   { title: "Test 1", value: "1" },
   { title: "Test 2", value: "2" },
-]
+];
 
 export const Bilings = () => (
   <StyledMainInfoBilings>
@@ -41,12 +41,7 @@ export const Bilings = () => (
       placeholder="Enter a location"
       className="input"
     />
-    <Input
-      value={""}
-      onChange={() => null}
-      label="City"
-      className="input"
-    />
+    <Input value={""} onChange={() => null} label="City" className="input" />
     <Input
       value={""}
       onChange={() => null}
@@ -70,4 +65,4 @@ export const Bilings = () => (
       className="input"
     />
   </StyledMainInfoBilings>
-)
+);

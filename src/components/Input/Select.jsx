@@ -5,13 +5,9 @@ import { Dropdown } from "../Dropdown";
 export const Select = ({ options, value, onSelect, right }) => {
   return (
     <StyledInputSelect right={right}>
-      {options?.find(opt => opt.value === value)?.title ?? ""}
+      {options?.find((opt) => opt.value === value)?.title ?? ""}
       <img src={arrowIcon} alt="" />
-      <Dropdown
-        options={options}
-        onSelectOption={onSelect}
-      />
+      <Dropdown options={options} onSelectOption={onSelect} />
     </StyledInputSelect>
-  )
-}
-
+  );
+};

@@ -4,10 +4,6 @@ import { StyledModalHeader } from "../../constats/styles";
 export const Header = ({ title, onClose }) => (
   <StyledModalHeader>
     <span>{title}</span>
-    <img
-      onClick={onClose}
-      src={closeIcon}
-      alt=""
-    />
+    <img onClick={onClose} src={closeIcon} alt="" />
   </StyledModalHeader>
-)
+);

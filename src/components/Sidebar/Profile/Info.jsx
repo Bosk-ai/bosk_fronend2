@@ -5,4 +5,4 @@ export const Info = ({ name, role }) => (
     <div className="name">{name}</div>
     <div className="role">{role}</div>
   </StyledProfileInfo>
-)
+);
