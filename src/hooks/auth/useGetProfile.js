@@ -14,9 +14,9 @@ const useGetProfile = () => {
       .then((resp) => resp.data)
       .catch((error) => {
         const status = error.response.status;
-        // if (status === 401) {
-        //   refreshToken();
-        // }
+        if (status === 401) {
+          refreshToken();
+        }
       })
   );
 
